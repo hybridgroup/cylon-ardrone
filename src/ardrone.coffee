@@ -21,11 +21,14 @@ namespace "Cylon.Adaptor", ->
       @ardrone = null
 
     commands: ->
-      Commands
+      Cylon.ARDrone.Commands
 
     connect: (callback) ->
       Logger.debug "Connecting to ARDrone '#{@name}'..."
-      @ardrone = new LibARDrone.createClient()
+      @ardrone = new LibARDrone.createClient(ip: @connection.port.toString())
+      @ardrone.on 'navdata', (data) =>
+        @connection.emit 'navdata', data
+
       @setupCommands()
       @connection.emit 'connect'
       (callback)(null)

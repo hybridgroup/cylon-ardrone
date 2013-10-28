@@ -25,13 +25,16 @@
     },
     driver: function(opts) {
       if (opts.name === 'ardrone') {
-        return new Cylon.Driver.ARDrone(opts);
+        return new Cylon.Driver.ARDrone.Flight(opts);
+      } else if (opts.name === 'ardroneNav') {
+        return new Cylon.Driver.ARDrone.Nav(opts);
       }
     },
     register: function(robot) {
       Logger.debug("Registering ARDrone adaptor and drivers for " + robot.name);
       robot.registerAdaptor('cylon-ardrone', 'ardrone');
-      return robot.registerDriver('cylon-ardrone', 'ardrone');
+      robot.registerDriver('cylon-ardrone', 'ardrone');
+      return robot.registerDriver('cylon-ardrone', 'ardroneNav');
     }
   };
 

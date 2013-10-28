@@ -12,7 +12,7 @@
 
   namespace = require('node-namespace');
 
-  namespace("Cylon.Adaptor", function() {
+  namespace("Cylon.ARDrone", function() {
     return this.Commands = ['takeoff', 'land', 'stop', 'up', 'down', 'left', 'right', 'front', 'back', 'clockwise', 'counterClockwise', 'calibrate', 'config', 'animate', 'animateLeds', 'disableEmergency'];
   });
 

@@ -16,24 +16,25 @@
 
   require('./commands');
 
-  namespace("Cylon.Driver", function() {
-    return this.ARDrone = (function() {
-      function ARDrone(opts) {
+  namespace("Cylon.Driver.ARDrone", function() {
+    return this.Flight = (function() {
+      function Flight(opts) {
         this.self = this;
         this.device = opts.device;
         this.connection = this.device.connection;
+        this.setupCommands();
       }
 
-      ARDrone.prototype.commands = function() {
-        return Commands;
+      Flight.prototype.commands = function() {
+        return Cylon.ARDrone.Commands;
       };
 
-      ARDrone.prototype.start = function(callback) {
+      Flight.prototype.start = function(callback) {
         Logger.debug("ARDrone started");
         return callback(null);
       };
 
-      ARDrone.prototype.setupCommands = function() {
+      Flight.prototype.setupCommands = function() {
         var command, _i, _len;
         for (_i = 0, _len = Commands.length; _i < _len; _i++) {
           command = Commands[_i];
@@ -48,7 +49,7 @@
         }
       };
 
-      return ARDrone;
+      return Flight;
 
     })();
   });

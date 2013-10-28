@@ -28,12 +28,18 @@
       }
 
       ARDrone.prototype.commands = function() {
-        return Commands;
+        return Cylon.ARDrone.Commands;
       };
 
       ARDrone.prototype.connect = function(callback) {
+        var _this = this;
         Logger.debug("Connecting to ARDrone '" + this.name + "'...");
-        this.ardrone = new LibARDrone.createClient();
+        this.ardrone = new LibARDrone.createClient({
+          ip: this.connection.port.toString()
+        });
+        this.ardrone.on('navdata', function(data) {
+          return _this.connection.emit('navdata', data);
+        });
         this.setupCommands();
         this.connection.emit('connect');
         return callback(null);

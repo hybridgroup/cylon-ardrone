@@ -1,5 +1,5 @@
 ###
- * Cylong ARDrone flight commander driver
+ * Cylong ARDrone navigation data driver
  * http://cylonjs.com
  *
  * Copyright (c) 2013 The Hybrid Group
@@ -11,21 +11,18 @@ namespace = require 'node-namespace'
 require './commands'
 
 namespace "Cylon.Driver.ARDrone", ->
-  class @Flight
+  class @Nav
     constructor: (opts) ->
       @self = this
       @device = opts.device
       @connection = @device.connection
-      @setupCommands()
 
     commands: ->
-      Cylon.ARDrone.Commands
+      []
 
     start: (callback) ->
-      Logger.debug "ARDrone started"
-      (callback)(null)
+      Logger.debug "ARDrone nav started"
+      @connection.on 'navdata', (data) =>
+        @emit 'navdata', data
 
-    setupCommands: ->
-      for command in Commands
-        return if typeof @self[command] is 'function'
-        @self[command] = (args...) -> @connection[command](args...)
+      (callback)(null)

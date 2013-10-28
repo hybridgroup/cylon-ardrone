@@ -16,15 +16,12 @@ module.exports =
 
   driver: (opts) ->
     if opts.name is 'ardrone'
-      new Cylon.Driver.ARDrone(opts)
-    # else if opts.name is 'ardroneNav'
-    #   new Cylon.Driver.ARDroneNav(opts)
-    # else if opts.name is 'ardroneVideo'
-    #   new Cylon.Driver.ARDroneVideo(opts)
+      new Cylon.Driver.ARDrone.Flight(opts)
+    else if opts.name is 'ardroneNav'
+      new Cylon.Driver.ARDrone.Nav(opts)
 
   register: (robot) ->
     Logger.debug "Registering ARDrone adaptor and drivers for #{robot.name}"
     robot.registerAdaptor 'cylon-ardrone', 'ardrone'
     robot.registerDriver 'cylon-ardrone', 'ardrone'
-    #robot.registerDriver 'cylon-ardrone', 'ardroneNav'
-    #robot.registerDriver 'cylon-ardrone', 'ardroneVideo'
+    robot.registerDriver 'cylon-ardrone', 'ardroneNav'

@@ -8,7 +8,7 @@
 
 namespace = require 'node-namespace'
 
-namespace "Cylon.Adaptor", ->
+namespace "Cylon.ARDrone", ->
   @Commands = ['takeoff', 'land', 'stop', 
                'up', 'down', 'left', 'right', 'front', 'back', 'clockwise', 'counterClockwise',
                'calibrate', 'config', 'animate', 'animateLeds', 'disableEmergency']
