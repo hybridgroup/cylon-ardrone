@@ -1,6 +1,6 @@
 'use strict';
 
-cylonArdrone = source("cylon-ardrone")
+ardrone = source("cylon-ardrone")
 
 describe "basic tests", ->
   it "standard async test", (done) ->
@@ -29,8 +29,11 @@ describe "basic tests", ->
     # hard equal
     data[0].should.be.equal obj
 
-  # Now on to a `real` test
-  it "cylon-ardrone should be awesome", ->
-    cylonArdrone.should.have.keys 'awesome'
-    cylonArdrone.awesome.should.be.a 'function'
-    cylonArdrone.awesome().should.be.equal 'awesome'
+  it "can register", ->
+    ardrone.register.should.be.a 'function'
+
+  it "can create an adaptor", ->
+    ardrone.adaptor.should.be.a 'function'
+
+  it "can create a driver", ->
+    ardrone.driver.should.be.a 'function'
