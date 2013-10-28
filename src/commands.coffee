@@ -9,5 +9,6 @@
 namespace = require 'node-namespace'
 
 namespace "Cylon.Adaptor", ->
-  @Commands = ['takeoff', 'land', 'stop', 'up', 'down',
-               'left', 'right', 'front', 'back', 'clockwise', 'counterClockwise']
+  @Commands = ['takeoff', 'land', 'stop', 
+               'up', 'down', 'left', 'right', 'front', 'back', 'clockwise', 'counterClockwise',
+               'calibrate', 'config', 'animate', 'animateLeds', 'disableEmergency']
