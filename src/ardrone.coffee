@@ -19,6 +19,7 @@ namespace "Cylon.Adaptor", ->
       @connection = opts.connection
       @name = opts.name
       @ardrone = null
+      proxyFunctionsToObject Cylon.ARDrone.Commands, @ardrone, this
 
     commands: ->
       Cylon.ARDrone.Commands
@@ -29,14 +30,8 @@ namespace "Cylon.Adaptor", ->
       @ardrone.on 'navdata', (data) =>
         @connection.emit 'navdata', data
 
-      @setupCommands()
       @connection.emit 'connect'
       (callback)(null)
 
     disconnect: ->
       Logger.debug "Disconnecting from ARDrone '#{@name}'..."
-
-    setupCommands: ->
-      for command in Commands
-        return if typeof @self[command] is 'function'
-        @self[command] = (args...) -> @ardrone[command](args...)

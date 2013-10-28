@@ -9,8 +9,7 @@
 
 (function() {
   'use strict';
-  var LibARDrone, namespace,
-    __slice = [].slice;
+  var LibARDrone, namespace;
 
   LibARDrone = require('ar-drone');
 
@@ -25,6 +24,7 @@
         this.connection = opts.connection;
         this.name = opts.name;
         this.ardrone = null;
+        proxyFunctionsToObject(Cylon.ARDrone.Commands, this.ardrone, this);
       }
 
       ARDrone.prototype.commands = function() {
@@ -40,28 +40,12 @@
         this.ardrone.on('navdata', function(data) {
           return _this.connection.emit('navdata', data);
         });
-        this.setupCommands();
         this.connection.emit('connect');
         return callback(null);
       };
 
       ARDrone.prototype.disconnect = function() {
         return Logger.debug("Disconnecting from ARDrone '" + this.name + "'...");
-      };
-
-      ARDrone.prototype.setupCommands = function() {
-        var command, _i, _len;
-        for (_i = 0, _len = Commands.length; _i < _len; _i++) {
-          command = Commands[_i];
-          if (typeof this.self[command] === 'function') {
-            return;
-          }
-          this.self[command] = function() {
-            var args, _ref;
-            args = 1 <= arguments.length ? __slice.call(arguments, 0) : [];
-            return (_ref = this.ardrone)[command].apply(_ref, args);
-          };
-        }
       };
 
       return ARDrone;
