@@ -21,7 +21,7 @@ Cylon.robot({
   device: {name: 'drone', driver: 'ardrone'},
 
   work: function(my) {
-    my.drone.takeOff();
+    my.drone.takeoff();
     after((10).seconds(), function() { 
       my.drone.hover();
     });
@@ -46,7 +46,7 @@ Cylon.robot
     name: 'ardrone', driver: 'ardrone'
 
   work: (my) ->
-    my.drone.takeOff()
+    my.drone.takeoff()
     after 10.seconds(), ->
       my.drone.hover()
     after 20.seconds(), ->
