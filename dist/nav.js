@@ -35,7 +35,7 @@
         var _this = this;
         Logger.debug("ARDrone nav started");
         this.connection.on('navdata', function(data) {
-          return _this.emit('navdata', data);
+          return _this.device.emit('navdata', data);
         });
         return callback(null);
       };
