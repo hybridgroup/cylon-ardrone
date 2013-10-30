@@ -63,5 +63,7 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 ## Release History
 Version 0.1.0 - Initial release that can fly
 
+Version 0.1.1 - Correct events for navdata
+
 ## License
 Copyright (c) 2013 The Hybrid Group. Licensed under the Apache 2.0 license.
