@@ -29,6 +29,30 @@ namespace "Cylon.Adaptor", ->
       @ardrone.on 'navdata', (data) =>
         @connection.emit 'navdata', data
 
+      @ardrone.on 'landing', =>
+        @connection.emit 'landing'
+
+      @ardrone.on 'landed', =>
+        @connection.emit 'landed'
+
+      @ardrone.on 'takeoff', =>
+        @connection.emit 'takeoff'
+
+      @ardrone.on 'hovering', =>
+        @connection.emit 'hovering'
+
+      @ardrone.on 'flying', =>
+        @connection.emit 'flying'
+
+      @ardrone.on 'lowBattery', (battery) =>
+        @connection.emit 'lowBattery', battery
+
+      @ardrone.on 'batteryChange', (battery) =>
+        @connection.emit 'batteryChange', battery
+
+      @ardrone.on 'altitudeChange', (altitude) =>
+        @connection.emit 'altitudeChange', altitude
+
       @connection.emit 'connect'
       (callback)(null)
 

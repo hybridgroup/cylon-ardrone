@@ -44,6 +44,30 @@
         this.ardrone.on('navdata', function(data) {
           return _this.connection.emit('navdata', data);
         });
+        this.ardrone.on('landing', function() {
+          return _this.connection.emit('landing');
+        });
+        this.ardrone.on('landed', function() {
+          return _this.connection.emit('landed');
+        });
+        this.ardrone.on('takeoff', function() {
+          return _this.connection.emit('takeoff');
+        });
+        this.ardrone.on('hovering', function() {
+          return _this.connection.emit('hovering');
+        });
+        this.ardrone.on('flying', function() {
+          return _this.connection.emit('flying');
+        });
+        this.ardrone.on('lowBattery', function(battery) {
+          return _this.connection.emit('lowBattery', battery);
+        });
+        this.ardrone.on('batteryChange', function(battery) {
+          return _this.connection.emit('batteryChange', battery);
+        });
+        this.ardrone.on('altitudeChange', function(altitude) {
+          return _this.connection.emit('altitudeChange', altitude);
+        });
         this.connection.emit('connect');
         return callback(null);
       };

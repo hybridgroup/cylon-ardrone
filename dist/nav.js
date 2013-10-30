@@ -38,6 +38,38 @@
           _this.device.emit('update', 'navdata', data);
           return _this.device.emit('navdata', data);
         });
+        this.connection.on('landing', function() {
+          _this.device.emit('update', 'landing');
+          return _this.device.emit('landing');
+        });
+        this.connection.on('landed', function() {
+          _this.device.emit('update', 'landed');
+          return _this.device.emit('landed');
+        });
+        this.connection.on('takeoff', function() {
+          _this.device.emit('update', 'takeoff');
+          return _this.device.emit('takeoff');
+        });
+        this.connection.on('hovering', function() {
+          _this.device.emit('update', 'hovering');
+          return _this.device.emit('hovering');
+        });
+        this.connection.on('flying', function() {
+          _this.device.emit('update', 'flying');
+          return _this.device.emit('flying');
+        });
+        this.connection.on('lowBattery', function(battery) {
+          _this.device.emit('update', 'lowBattery', battery);
+          return _this.device.emit('lowBattery', battery);
+        });
+        this.connection.on('batteryChange', function(battery) {
+          _this.device.emit('update', 'batteryChange', battery);
+          return _this.device.emit('batteryChange', battery);
+        });
+        this.connection.on('altitudeChange', function(altitude) {
+          _this.device.emit('update', 'altitudeChange', altitude);
+          return _this.device.emit('altitudeChange', altitude);
+        });
         callback(null);
         return this.device.emit('start');
       };
