@@ -9,7 +9,9 @@
 
 (function() {
   'use strict';
-  var LibARDrone, namespace;
+  var LibARDrone, namespace,
+    __hasProp = {}.hasOwnProperty,
+    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
   LibARDrone = require('ar-drone');
 
@@ -18,13 +20,15 @@
   require('./commands');
 
   namespace("Cylon.Adaptor", function() {
-    return this.ARDrone = (function() {
+    return this.ARDrone = (function(_super) {
+      __extends(ARDrone, _super);
+
       function ARDrone(opts) {
-        this.self = this;
+        ARDrone.__super__.constructor.apply(this, arguments);
         this.connection = opts.connection;
         this.name = opts.name;
         this.ardrone = null;
-        proxyFunctionsToObject(Cylon.ARDrone.Commands, this.ardrone, this);
+        this.proxyMethods(Cylon.ARDrone.Commands, this.ardrone, ARDrone);
       }
 
       ARDrone.prototype.commands = function() {
@@ -50,7 +54,7 @@
 
       return ARDrone;
 
-    })();
+    })(Cylon.Basestar);
   });
 
 }).call(this);

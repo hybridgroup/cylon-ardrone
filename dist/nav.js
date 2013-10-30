@@ -9,16 +9,20 @@
 
 (function() {
   'use strict';
-  var namespace;
+  var namespace,
+    __hasProp = {}.hasOwnProperty,
+    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
   namespace = require('node-namespace');
 
   require('./commands');
 
   namespace("Cylon.Driver.ARDrone", function() {
-    return this.Nav = (function() {
+    return this.Nav = (function(_super) {
+      __extends(Nav, _super);
+
       function Nav(opts) {
-        this.self = this;
+        Nav.__super__.constructor.apply(this, arguments);
         this.device = opts.device;
         this.connection = this.device.connection;
       }
@@ -38,7 +42,7 @@
 
       return Nav;
 
-    })();
+    })(Cylon.Basestar);
   });
 
 }).call(this);

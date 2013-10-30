@@ -9,9 +9,16 @@
 
 (function() {
   'use strict';
-  var __slice = [].slice;
+  var namespace,
+    __slice = [].slice;
+
+  namespace = require('node-namespace');
 
   require('./ardrone');
+
+  require('./flight');
+
+  require('./nav');
 
   module.exports = {
     adaptor: function() {

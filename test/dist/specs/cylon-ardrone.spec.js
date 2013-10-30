@@ -1,6 +1,17 @@
 (function() {
   'use strict';
-  var ardrone;
+  var ardrone, namespace;
+
+  namespace = require('node-namespace');
+
+  namespace('Cylon', function() {
+    return this.Basestar = (function() {
+      function Basestar() {}
+
+      return Basestar;
+
+    })();
+  });
 
   ardrone = source("cylon-ardrone");
 

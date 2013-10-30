@@ -11,9 +11,9 @@ namespace = require 'node-namespace'
 require './commands'
 
 namespace "Cylon.Driver.ARDrone", ->
-  class @Nav
+  class @Nav extends Cylon.Basestar
     constructor: (opts) ->
-      @self = this
+      super
       @device = opts.device
       @connection = @device.connection
 

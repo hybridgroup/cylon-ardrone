@@ -8,7 +8,11 @@
 
 'use strict';
 
+namespace = require 'node-namespace'
+
 require('./ardrone')
+require('./flight')
+require('./nav')
 
 module.exports =
   adaptor: (args...) ->

@@ -13,16 +13,15 @@ namespace = require 'node-namespace'
 require './commands'
 
 namespace "Cylon.Adaptor", ->
-  class @ARDrone
+  class @ARDrone extends Cylon.Basestar
     constructor: (opts) ->
-      @self = this
+      super
       @connection = opts.connection
       @name = opts.name
       @ardrone = null
-      proxyFunctionsToObject Cylon.ARDrone.Commands, @ardrone, this
+      @proxyMethods Cylon.ARDrone.Commands, @ardrone, ARDrone
 
-    commands: ->
-      Cylon.ARDrone.Commands
+    commands: -> Cylon.ARDrone.Commands
 
     connect: (callback) ->
       Logger.debug "Connecting to ARDrone '#{@name}'..."

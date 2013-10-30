@@ -10,19 +10,22 @@
 (function() {
   'use strict';
   var namespace,
-    __slice = [].slice;
+    __hasProp = {}.hasOwnProperty,
+    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
   namespace = require('node-namespace');
 
   require('./commands');
 
   namespace("Cylon.Driver.ARDrone", function() {
-    return this.Flight = (function() {
+    return this.Flight = (function(_super) {
+      __extends(Flight, _super);
+
       function Flight(opts) {
-        this.self = this;
+        Flight.__super__.constructor.apply(this, arguments);
         this.device = opts.device;
         this.connection = this.device.connection;
-        this.setupCommands();
+        this.proxyMethods(Cylon.ARDrone.Commands, this.connection, Flight);
       }
 
       Flight.prototype.commands = function() {
@@ -34,24 +37,9 @@
         return callback(null);
       };
 
-      Flight.prototype.setupCommands = function() {
-        var command, _i, _len;
-        for (_i = 0, _len = Commands.length; _i < _len; _i++) {
-          command = Commands[_i];
-          if (typeof this.self[command] === 'function') {
-            return;
-          }
-          this.self[command] = function() {
-            var args, _ref;
-            args = 1 <= arguments.length ? __slice.call(arguments, 0) : [];
-            return (_ref = this.connection)[command].apply(_ref, args);
-          };
-        }
-      };
-
       return Flight;
 
-    })();
+    })(Cylon.Basestar);
   });
 
 }).call(this);

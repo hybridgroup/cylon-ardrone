@@ -11,21 +11,15 @@ namespace = require 'node-namespace'
 require './commands'
 
 namespace "Cylon.Driver.ARDrone", ->
-  class @Flight
+  class @Flight extends Cylon.Basestar
     constructor: (opts) ->
-      @self = this
+      super
       @device = opts.device
       @connection = @device.connection
-      @setupCommands()
+      @proxyMethods Cylon.ARDrone.Commands, @connection, Flight
 
-    commands: ->
-      Cylon.ARDrone.Commands
+    commands: -> Cylon.ARDrone.Commands
 
     start: (callback) ->
       Logger.debug "ARDrone started"
       (callback)(null)
-
-    setupCommands: ->
-      for command in Commands
-        return if typeof @self[command] is 'function'
-        @self[command] = (args...) -> @connection[command](args...)
