@@ -2,7 +2,7 @@
 
 Cylon.js (http://cylonjs.com) is a JavaScript framework for robotics and physical computing using Node.js
 
-This module provides an interface to the ARDrone 2.0 from Parrot (http://ardrone2.parrot.com/). It uses the node-ar-drone module (https://github.com/felixge/node-ar-drone) created by [@felixge](https://github.com/felixge) thank you!
+This module provides an adaptor and drivers for the ARDrone 2.0 from Parrot (http://ardrone2.parrot.com/). It uses the node-ar-drone module (https://github.com/felixge/node-ar-drone) created by [@felixge](https://github.com/felixge) thank you!
 
 Want to use Ruby on robots? Check out our sister project Artoo (http://artoo.io)
 
