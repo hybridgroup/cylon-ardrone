@@ -19,13 +19,13 @@ namespace "Cylon.Adaptor", ->
       @connection = opts.connection
       @name = opts.name
       @ardrone = null
-      @proxyMethods Cylon.ARDrone.Commands, @ardrone, ARDrone
 
     commands: -> Cylon.ARDrone.Commands
 
     connect: (callback) ->
       Logger.debug "Connecting to ARDrone '#{@name}'..."
       @ardrone = new LibARDrone.createClient(ip: @connection.port.toString())
+      @proxyMethods Cylon.ARDrone.Commands, @ardrone, Cylon.Adaptor.ARDrone
       @ardrone.on 'navdata', (data) =>
         @connection.emit 'navdata', data
 

@@ -17,18 +17,15 @@ Install the module with: `npm install cylon-ardrone`
 var Cylon = require('cylon');
 
 Cylon.robot({
-  connection: { name: 'ardrone', adaptor: 'ardrone' },
+  connection: { name: 'ardrone', adaptor: 'ardrone', port: '192.168.1.1' },
   device: {name: 'drone', driver: 'ardrone'},
 
   work: function(my) {
     my.drone.takeoff();
     after((10).seconds(), function() { 
-      my.drone.hover();
-    });
-    after((20).seconds(), function() { 
       my.drone.land();
     });
-    after((25).seconds(), function() { 
+    after((15).seconds(), function() { 
       my.drone.stop();
     });    
   }
@@ -40,7 +37,7 @@ Cylon = require('cylon')
 
 Cylon.robot
   connection:
-    name: 'ardrone', adaptor: 'ardrone'
+    name: 'ardrone', adaptor: 'ardrone', port: '192.168.1.1'
 
   device:
     name: 'ardrone', driver: 'ardrone'
@@ -48,17 +45,17 @@ Cylon.robot
   work: (my) ->
     my.drone.takeoff()
     after 10.seconds(), ->
-      my.drone.hover()
-    after 20.seconds(), ->
       my.drone.land()
-    after 25.seconds(), ->
+    after 15.seconds(), ->
       my.drone.stop()
 
 .start()
 ```
 
 ## Documentation
-_(Coming soon)_
+We're busy adding documentation to our web site at http://cylonjs.com/ please check there as we continue to work on Cylon.js
+
+Thank you!
 
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
