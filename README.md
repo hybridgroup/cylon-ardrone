@@ -1,24 +1,64 @@
-# cylon-ardrone [![Build Status](https://secure.travis-ci.org/hybridgroup/cylon-ardrone.png?branch=master)](http://travis-ci.org/hybridgroup/cylon-ardrone)
+# Cylon.js Module For ARDrone
 
-Cylon module for the Parrot ARDrone 2.0
+Cylon.js (http://cylonjs.com) is a JavaScript framework for robotics and physical computing using Node.js
+
+This module provides an interface to the ARDrone 2.0 from Parrot. It uses the node-ar-drone module (https://github.com/felixge/node-ar-drone) created by [@felixge](https://github.com/felixge) thank you!
+
+Want to use Ruby on robots? Check out our sister project Artoo (http://artoo.io)
+
+[![Build Status](https://secure.travis-ci.org/hybridgroup/cylon-ardrone.png?branch=master)](http://travis-ci.org/hybridgroup/cylon-ardrone)
 
 ## Getting Started
 Install the module with: `npm install cylon-ardrone`
 
+## Examples
+
 ```javascript
-var cylonArdrone = require('cylon-ardrone');
-cylonArdrone.awesome(); // "awesome"
+var Cylon = require('cylon');
+
+// Initialize the robot
+Cylon.robot({
+  connection: { name: 'ardrone', adaptor: 'ardrone' },
+  device: {name: 'drone', driver: 'ardrone'},
+
+  work: function(my) {
+    my.drone.takeOff();
+    after((10).seconds(), function() { 
+      my.drone.hover();
+    });
+    after((20).seconds(), function() { 
+      my.drone.land();
+    });
+    after((25).seconds(), function() { 
+      my.drone.stop();
+    });    
+  }
+}).start();
 ```
 
 ```coffee-script
-cylonArdrone = require 'cylon-ardrone'
-cylonArdrone.awesome() // "awesome"
+Cylon = require('cylon')
+
+Cylon.robot
+  connection:
+    name: 'ardrone', adaptor: 'ardrone'
+
+  device:
+    name: 'ardrone', driver: 'ardrone'
+
+  work: (my) ->
+    my.drone.takeOff()
+    after 10.seconds(), ->
+      my.drone.hover()
+    after 20.seconds(), ->
+      my.drone.land()
+    after 25.seconds(), ->
+      my.drone.stop()
+
+.start()
 ```
 
 ## Documentation
-_(Coming soon)_
-
-## Examples
 _(Coming soon)_
 
 ## Contributing
