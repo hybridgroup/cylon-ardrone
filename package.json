@@ -1,6 +1,6 @@
 {
   "name": "cylon-ardrone",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "dist/cylon-ardrone.js",
   "description": "Cylon module for the Parrot ARDrone 2.0",
   "homepage": "http://cylonjs.com",

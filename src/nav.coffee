@@ -23,6 +23,8 @@ namespace "Cylon.Driver.ARDrone", ->
     start: (callback) ->
       Logger.debug "ARDrone nav started"
       @connection.on 'navdata', (data) =>
+        @device.emit 'update', 'navdata', data
         @device.emit 'navdata', data
 
       (callback)(null)
+      @device.emit 'start'

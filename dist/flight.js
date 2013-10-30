@@ -34,7 +34,8 @@
 
       Flight.prototype.start = function(callback) {
         Logger.debug("ARDrone started");
-        return callback(null);
+        callback(null);
+        return this.device.emit('start');
       };
 
       return Flight;
