@@ -65,5 +65,7 @@ Version 0.1.0 - Initial release that can fly
 
 Version 0.1.1 - Correct events for navdata
 
+Version 0.2.0 - Now update and specific events too
+
 ## License
 Copyright (c) 2013 The Hybrid Group. Licensed under the Apache 2.0 license.
