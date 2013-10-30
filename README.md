@@ -16,7 +16,6 @@ Install the module with: `npm install cylon-ardrone`
 ```javascript
 var Cylon = require('cylon');
 
-// Initialize the robot
 Cylon.robot({
   connection: { name: 'ardrone', adaptor: 'ardrone' },
   device: {name: 'drone', driver: 'ardrone'},
