@@ -19,39 +19,26 @@ namespace "Cylon.Adaptor", ->
       @connection = opts.connection
       @name = opts.name
       @ardrone = null
+      @conector = null
 
     commands: -> Cylon.ARDrone.Commands
 
     connect: (callback) ->
       Logger.debug "Connecting to ARDrone '#{@name}'..."
       @ardrone = new LibARDrone.createClient(ip: @connection.port.toString())
+      @connector = @ardrone
+
       @proxyMethods Cylon.ARDrone.Commands, @ardrone, Cylon.Adaptor.ARDrone
-      @ardrone.on 'navdata', (data) =>
-        @connection.emit 'navdata', data
 
-      @ardrone.on 'landing', =>
-        @connection.emit 'landing'
-
-      @ardrone.on 'landed', =>
-        @connection.emit 'landed'
-
-      @ardrone.on 'takeoff', =>
-        @connection.emit 'takeoff'
-
-      @ardrone.on 'hovering', =>
-        @connection.emit 'hovering'
-
-      @ardrone.on 'flying', =>
-        @connection.emit 'flying'
-
-      @ardrone.on 'lowBattery', (battery) =>
-        @connection.emit 'lowBattery', battery
-
-      @ardrone.on 'batteryChange', (battery) =>
-        @connection.emit 'batteryChange', battery
-
-      @ardrone.on 'altitudeChange', (altitude) =>
-        @connection.emit 'altitudeChange', altitude
+      @defineAdaptorEvent eventName: 'navdata'
+      @defineAdaptorEvent eventName: 'landing'
+      @defineAdaptorEvent eventName: 'landed'
+      @defineAdaptorEvent eventName: 'takeoff'
+      @defineAdaptorEvent eventName: 'hovering'
+      @defineAdaptorEvent eventName: 'flying'
+      @defineAdaptorEvent eventName: 'lowBattery'
+      @defineAdaptorEvent eventName: 'batteryChange'
+      @defineAdaptorEvent eventName: 'altitudeChange'
 
       @connection.emit 'connect'
       (callback)(null)
