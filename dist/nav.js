@@ -43,28 +43,25 @@
           eventName: 'landed'
         });
         this.defineDriverEvent({
-          on: 'takeoff'
+          eventName: 'takeoff'
         });
         this.defineDriverEvent({
-          on: 'hovering'
+          eventName: 'hovering'
         });
         this.defineDriverEvent({
-          on: 'fliying'
+          eventName: 'fliying'
         });
         this.defineDriverEvent({
-          on: 'lowBattery'
+          eventName: 'lowBattery'
         });
         this.defineDriverEvent({
-          on: 'batteryChange'
+          eventName: 'batteryChange'
         });
         this.defineDriverEvent({
-          on: 'altitudeChange'
+          eventName: 'altitudeChange'
         });
         this.defineDriverEvent({
-          on: 'update'
-        });
-        this.defineDriverEvent({
-          eventName: 'navdata'
+          eventName: 'update'
         });
         return this.device.emit('start');
       };
