@@ -67,5 +67,7 @@ Version 0.1.1 - Correct events for navdata
 
 Version 0.2.0 - Now update and specific events too
 
+Version 0.3.0 - Refactor to use Cylon.Basestar
+
 ## License
 Copyright (c) 2013 The Hybrid Group. Licensed under the Apache 2.0 license.
