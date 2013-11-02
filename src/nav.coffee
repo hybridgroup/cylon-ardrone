@@ -35,5 +35,5 @@ namespace "Cylon.Driver.ARDrone", ->
       @defineDriverEvent(eventName: 'altitudeChange')
       @defineDriverEvent(eventName: 'update')
 
+      (callback)(null)
       @device.emit 'start'
-     (callback)(null)

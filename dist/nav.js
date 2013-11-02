@@ -63,10 +63,9 @@
         this.defineDriverEvent({
           eventName: 'update'
         });
+        callback(null);
         return this.device.emit('start');
       };
-
-      callback(null);
 
       return Nav;
 

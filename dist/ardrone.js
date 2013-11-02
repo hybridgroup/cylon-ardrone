@@ -69,8 +69,8 @@
         this.defineAdaptorEvent({
           eventName: 'altitudeChange'
         });
-        this.connection.emit('connect');
-        return callback(null);
+        callback(null);
+        return this.connection.emit('connect');
       };
 
       ARDrone.prototype.disconnect = function() {

@@ -40,8 +40,8 @@ namespace "Cylon.Adaptor", ->
       @defineAdaptorEvent eventName: 'batteryChange'
       @defineAdaptorEvent eventName: 'altitudeChange'
 
-      @connection.emit 'connect'
       (callback)(null)
+      @connection.emit 'connect'
 
     disconnect: ->
       Logger.debug "Disconnecting from ARDrone '#{@name}'..."
