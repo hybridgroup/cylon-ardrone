@@ -49,7 +49,7 @@
           eventName: 'hovering'
         });
         this.defineDriverEvent({
-          eventName: 'fliying'
+          eventName: 'flying'
         });
         this.defineDriverEvent({
           eventName: 'lowBattery'

@@ -29,7 +29,7 @@ namespace "Cylon.Driver.ARDrone", ->
       @defineDriverEvent(eventName: 'landed')
       @defineDriverEvent(eventName: 'takeoff')
       @defineDriverEvent(eventName: 'hovering')
-      @defineDriverEvent(eventName: 'fliying')
+      @defineDriverEvent(eventName: 'flying')
       @defineDriverEvent(eventName: 'lowBattery')
       @defineDriverEvent(eventName: 'batteryChange')
       @defineDriverEvent(eventName: 'altitudeChange')
