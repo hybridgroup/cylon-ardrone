@@ -16,7 +16,7 @@ namespace "Cylon.Driver.ARDrone", ->
       super
       @device = opts.device
       @connection = @device.connection
-      @proxyMethods Cylon.ARDrone.Commands, @connection, Flight
+      @proxyMethods Cylon.ARDrone.Commands, @connection, this
 
     commands: -> Cylon.ARDrone.Commands
 

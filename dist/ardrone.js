@@ -29,6 +29,7 @@
         this.name = opts.name;
         this.ardrone = null;
         this.conector = null;
+        this.myself = this;
       }
 
       ARDrone.prototype.commands = function() {
@@ -41,7 +42,7 @@
           ip: this.connection.port.toString()
         });
         this.connector = this.ardrone;
-        this.proxyMethods(Cylon.ARDrone.Commands, this.ardrone, Cylon.Adaptor.ARDrone);
+        this.proxyMethods(Cylon.ARDrone.Commands, this.ardrone, this.myself);
         this.defineAdaptorEvent({
           eventName: 'navdata'
         });

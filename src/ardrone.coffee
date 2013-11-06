@@ -20,6 +20,7 @@ namespace "Cylon.Adaptor", ->
       @name = opts.name
       @ardrone = null
       @conector = null
+      @myself = this
 
     commands: -> Cylon.ARDrone.Commands
 
@@ -28,7 +29,7 @@ namespace "Cylon.Adaptor", ->
       @ardrone = new LibARDrone.createClient(ip: @connection.port.toString())
       @connector = @ardrone
 
-      @proxyMethods Cylon.ARDrone.Commands, @ardrone, Cylon.Adaptor.ARDrone
+      @proxyMethods Cylon.ARDrone.Commands, @ardrone, @myself
 
       @defineAdaptorEvent eventName: 'navdata'
       @defineAdaptorEvent eventName: 'landing'

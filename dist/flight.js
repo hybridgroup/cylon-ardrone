@@ -25,7 +25,7 @@
         Flight.__super__.constructor.apply(this, arguments);
         this.device = opts.device;
         this.connection = this.device.connection;
-        this.proxyMethods(Cylon.ARDrone.Commands, this.connection, Flight);
+        this.proxyMethods(Cylon.ARDrone.Commands, this.connection, this);
       }
 
       Flight.prototype.commands = function() {
