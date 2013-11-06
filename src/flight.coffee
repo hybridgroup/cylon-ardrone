@@ -24,3 +24,6 @@ namespace "Cylon.Driver.ARDrone", ->
       Logger.debug "ARDrone started"
       (callback)(null)
       @device.emit 'start'
+
+    stop: ->
+      Logger.debug "ARDrone stopping"

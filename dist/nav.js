@@ -67,6 +67,10 @@
         return this.device.emit('start');
       };
 
+      Nav.prototype.stop = function() {
+        return Logger.debug("ARDrone Nav stopping");
+      };
+
       return Nav;
 
     })(Cylon.Basestar);
