@@ -38,6 +38,10 @@
         return this.device.emit('start');
       };
 
+      Flight.prototype.stop = function() {
+        return Logger.debug("ARDrone stopping");
+      };
+
       return Flight;
 
     })(Cylon.Basestar);
