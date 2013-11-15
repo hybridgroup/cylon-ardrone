@@ -19,7 +19,7 @@ namespace "Cylon.Adaptor", ->
       @connection = opts.connection
       @name = opts.name
       @ardrone = null
-      @conector = null
+      @connector = null
       @myself = this
 
     commands: -> Cylon.ARDrone.Commands
