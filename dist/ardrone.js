@@ -28,7 +28,7 @@
         this.connection = opts.connection;
         this.name = opts.name;
         this.ardrone = null;
-        this.conector = null;
+        this.connector = null;
         this.myself = this;
       }
 
