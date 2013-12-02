@@ -8,7 +8,7 @@ namespace 'Cylon', ->
 
 ardrone = source("cylon-ardrone")
 
-describe "basic tests", ->
+describe "Cylon.ARDrone", ->
   it "standard async test", (done) ->
     bool = false
     bool.should.be.false

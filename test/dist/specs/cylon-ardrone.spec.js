@@ -15,7 +15,7 @@
 
   ardrone = source("cylon-ardrone");
 
-  describe("basic tests", function() {
+  describe("Cylon.ARDrone", function() {
     it("standard async test", function(done) {
       var bool;
       bool = false;
