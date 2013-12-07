@@ -11,7 +11,8 @@
   'use strict';
   var namespace,
     __hasProp = {}.hasOwnProperty,
-    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
+    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
+    __slice = [].slice;
 
   namespace = require('node-namespace');
 
@@ -40,6 +41,28 @@
 
       Flight.prototype.stop = function() {
         return Logger.debug("ARDrone stopping");
+      };
+
+      Flight.prototype.forward = function() {
+        var args, _ref;
+        args = 1 <= arguments.length ? __slice.call(arguments, 0) : [];
+        return (_ref = this.connection).front.apply(_ref, args);
+      };
+
+      Flight.prototype.frontFlip = function() {
+        return this.connection.animate('flipAhead', 150);
+      };
+
+      Flight.prototype.backFlip = function() {
+        return this.connection.animate('flipBehind', 150);
+      };
+
+      Flight.prototype.leftFlip = function() {
+        return this.connection.animate('flipLeft', 150);
+      };
+
+      Flight.prototype.rightFlip = function() {
+        return this.connection.animate('flipRight', 150);
       };
 
       return Flight;

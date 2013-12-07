@@ -27,3 +27,18 @@ namespace "Cylon.Driver.ARDrone", ->
 
     stop: ->
       Logger.debug "ARDrone stopping"
+
+    forward: (args...) ->
+      @connection.front(args...)
+
+    frontFlip: ->
+      @connection.animate 'flipAhead', 150
+
+    backFlip: ->
+      @connection.animate 'flipBehind', 150
+
+    leftFlip: ->
+      @connection.animate 'flipLeft', 150
+
+    rightFlip: ->
+      @connection.animate 'flipRight', 150
