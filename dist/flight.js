@@ -65,6 +65,10 @@
         return this.connection.animate('flipRight', 150);
       };
 
+      Flight.prototype.wave = function() {
+        return this.connection.animate('wave', 750);
+      };
+
       return Flight;
 
     })(Cylon.Basestar);

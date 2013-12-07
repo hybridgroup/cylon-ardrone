@@ -42,3 +42,6 @@ namespace "Cylon.Driver.ARDrone", ->
 
     rightFlip: ->
       @connection.animate 'flipRight', 150
+
+    wave: ->
+      @connection.animate 'wave', 750

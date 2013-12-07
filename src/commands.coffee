@@ -38,8 +38,9 @@ namespace "Cylon.ARDrone", ->
 
     # Custom ARDrone commands that we add, mostly aliases for other commands
     'forward', # alias for 'front'
-    'frontFlip', # alias for 'animate("flipAhead", 750)'
-    'backFlip', # alias for 'animate("flipBehind", 750)'
-    'leftFlip', # alias for 'animate("flipLeft", 750)'
-    'rightFlip', # alias for 'animate("flipRight", 750)'
+    'frontFlip', # alias for 'animate("flipAhead", 150)'
+    'backFlip', # alias for 'animate("flipBehind", 150)'
+    'leftFlip', # alias for 'animate("flipLeft", 150)'
+    'rightFlip', # alias for 'animate("flipRight", 150)'
+    'wave' # alias for 'animate("wave", 750)'
   ]
