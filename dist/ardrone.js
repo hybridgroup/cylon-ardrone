@@ -74,7 +74,7 @@
 
       return ARDrone;
 
-    })(Cylon.Adaptors.Adaptor);
+    })(Cylon.Adaptor);
   });
 
 }).call(this);

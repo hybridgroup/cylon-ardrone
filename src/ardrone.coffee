@@ -14,7 +14,7 @@ namespace = require 'node-namespace'
 require './commands'
 
 namespace "Cylon.Adaptors", ->
-  class @ARDrone extends Cylon.Adaptors.Adaptor
+  class @ARDrone extends Cylon.Adaptor
     constructor: (opts) ->
       super
       @ardrone = null

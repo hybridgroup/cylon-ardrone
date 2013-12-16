@@ -12,7 +12,7 @@ namespace = require 'node-namespace'
 require './commands'
 
 namespace "Cylon.Drivers.ARDrone", ->
-  class @Nav extends Cylon.Drivers.Driver
+  class @Nav extends Cylon.Driver
     start: (callback) ->
       Logger.debug "ARDrone nav started"
 

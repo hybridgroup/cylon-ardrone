@@ -12,7 +12,7 @@ namespace = require 'node-namespace'
 require './commands'
 
 namespace "Cylon.Drivers.ARDrone", ->
-  class @Flight extends Cylon.Drivers.Driver
+  class @Flight extends Cylon.Driver
     constructor: (opts) ->
       super
       @proxyMethods Cylon.ARDrone.Commands, @connection, this

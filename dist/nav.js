@@ -66,7 +66,7 @@
 
       return Nav;
 
-    })(Cylon.Drivers.Driver);
+    })(Cylon.Driver);
   });
 
 }).call(this);
