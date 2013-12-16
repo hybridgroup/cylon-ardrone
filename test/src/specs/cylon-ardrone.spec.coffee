@@ -1,11 +1,5 @@
 'use strict';
 
-# Needed so that tests don't implode
-namespace = require 'node-namespace'
-namespace 'Cylon', ->
-  class @Basestar
-    constructor: ->
-
 ardrone = source("cylon-ardrone")
 
 describe "Cylon.ARDrone", ->

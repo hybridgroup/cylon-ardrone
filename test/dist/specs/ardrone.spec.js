@@ -1,6 +1,8 @@
 (function() {
   'use strict';
-  describe('Cylon.Adaptor.Ardrone', function() {
+  source('ardrone');
+
+  describe('Cylon.Adaptors.Ardrone', function() {
     return it('needs test coverage');
   });
 

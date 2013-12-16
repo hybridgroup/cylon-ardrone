@@ -7,22 +7,14 @@
 ###
 
 'use strict';
+require './cylon-ardrone'
 namespace = require 'node-namespace'
 require './commands'
 
-namespace "Cylon.Driver.ARDrone", ->
-  class @Nav extends Cylon.Basestar
-    constructor: (opts) ->
-      super
-      @device = opts.device
-      @connection = @device.connection
-
-    commands: ->
-      []
-
+namespace "Cylon.Drivers.ARDrone", ->
+  class @Nav extends Cylon.Drivers.Driver
     start: (callback) ->
       Logger.debug "ARDrone nav started"
-
 
       @defineDriverEvent(eventName: 'navdata')
       @defineDriverEvent(eventName: 'landing')
@@ -35,8 +27,4 @@ namespace "Cylon.Driver.ARDrone", ->
       @defineDriverEvent(eventName: 'altitudeChange')
       @defineDriverEvent(eventName: 'update')
 
-      (callback)(null)
-      @device.emit 'start'
-
-    stop: ->
-      Logger.debug "ARDrone Nav stopping"
+      super

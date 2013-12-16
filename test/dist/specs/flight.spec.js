@@ -1,6 +1,8 @@
 (function() {
   'use strict';
-  describe('Cylon.Driver.ARDrone.Flight', function() {
+  source('flight');
+
+  describe('Cylon.Drivers.ARDrone.Flight', function() {
     return it('needs test coverage');
   });
 

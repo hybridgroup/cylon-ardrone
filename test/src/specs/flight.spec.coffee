@@ -1,4 +1,6 @@
 'use strict';
 
-describe 'Cylon.Driver.ARDrone.Flight', ->
+source 'flight'
+
+describe 'Cylon.Drivers.ARDrone.Flight', ->
   it 'needs test coverage'

@@ -10,19 +10,20 @@
 
 namespace = require 'node-namespace'
 
-require('./ardrone')
-require('./flight')
-require('./nav')
+require "cylon"
+require './ardrone'
+require './flight'
+require './nav'
 
 module.exports =
   adaptor: (args...) ->
-    new Cylon.Adaptor.ARDrone(args...)
+    new Cylon.Adaptors.ARDrone(args...)
 
   driver: (opts) ->
     if opts.name is 'ardrone'
-      new Cylon.Driver.ARDrone.Flight(opts)
+      new Cylon.Drivers.ARDrone.Flight(opts)
     else if opts.name is 'ardroneNav'
-      new Cylon.Driver.ARDrone.Nav(opts)
+      new Cylon.Drivers.ARDrone.Nav(opts)
 
   register: (robot) ->
     Logger.debug "Registering ARDrone adaptor and drivers for #{robot.name}"
