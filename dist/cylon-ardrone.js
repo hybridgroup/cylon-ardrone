@@ -14,6 +14,8 @@
 
   namespace = require('node-namespace');
 
+  require("cylon");
+
   require('./ardrone');
 
   require('./flight');
@@ -28,13 +30,13 @@
         ctor.prototype = func.prototype;
         var child = new ctor, result = func.apply(child, args);
         return Object(result) === result ? result : child;
-      })(Cylon.Adaptor.ARDrone, args, function(){});
+      })(Cylon.Adaptors.ARDrone, args, function(){});
     },
     driver: function(opts) {
       if (opts.name === 'ardrone') {
-        return new Cylon.Driver.ARDrone.Flight(opts);
+        return new Cylon.Drivers.ARDrone.Flight(opts);
       } else if (opts.name === 'ardroneNav') {
-        return new Cylon.Driver.ARDrone.Nav(opts);
+        return new Cylon.Drivers.ARDrone.Nav(opts);
       }
     },
     register: function(robot) {

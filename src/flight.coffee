@@ -7,26 +7,17 @@
 ###
 
 'use strict';
+require './cylon-ardrone'
 namespace = require 'node-namespace'
 require './commands'
 
-namespace "Cylon.Driver.ARDrone", ->
-  class @Flight extends Cylon.Basestar
+namespace "Cylon.Drivers.ARDrone", ->
+  class @Flight extends Cylon.Driver
     constructor: (opts) ->
       super
-      @device = opts.device
-      @connection = @device.connection
       @proxyMethods Cylon.ARDrone.Commands, @connection, this
 
     commands: -> Cylon.ARDrone.Commands
-
-    start: (callback) ->
-      Logger.debug "ARDrone started"
-      (callback)(null)
-      @device.emit 'start'
-
-    stop: ->
-      Logger.debug "ARDrone stopping"
 
     forward: (args...) ->
       @connection.front(args...)

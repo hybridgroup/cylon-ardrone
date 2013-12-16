@@ -8,16 +8,15 @@
 
 'use strict';
 
+require './cylon-ardrone'
 LibARDrone = require 'ar-drone'
 namespace = require 'node-namespace'
 require './commands'
 
-namespace "Cylon.Adaptor", ->
-  class @ARDrone extends Cylon.Basestar
+namespace "Cylon.Adaptors", ->
+  class @ARDrone extends Cylon.Adaptor
     constructor: (opts) ->
       super
-      @connection = opts.connection
-      @name = opts.name
       @ardrone = null
       @connector = null
       @myself = this
@@ -25,7 +24,6 @@ namespace "Cylon.Adaptor", ->
     commands: -> Cylon.ARDrone.Commands
 
     connect: (callback) ->
-      Logger.debug "Connecting to ARDrone '#{@name}'..."
       @ardrone = new LibARDrone.createClient(ip: @connection.port.toString())
       @connector = @ardrone
 
@@ -41,8 +39,4 @@ namespace "Cylon.Adaptor", ->
       @defineAdaptorEvent eventName: 'batteryChange'
       @defineAdaptorEvent eventName: 'altitudeChange'
 
-      (callback)(null)
-      @connection.emit 'connect'
-
-    disconnect: ->
-      Logger.debug "Disconnecting from ARDrone '#{@name}'..."
+      super

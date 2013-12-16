@@ -13,23 +13,21 @@
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
+  require('./cylon-ardrone');
+
   namespace = require('node-namespace');
 
   require('./commands');
 
-  namespace("Cylon.Driver.ARDrone", function() {
+  namespace("Cylon.Drivers.ARDrone", function() {
+    var _ref;
     return this.Nav = (function(_super) {
       __extends(Nav, _super);
 
-      function Nav(opts) {
-        Nav.__super__.constructor.apply(this, arguments);
-        this.device = opts.device;
-        this.connection = this.device.connection;
+      function Nav() {
+        _ref = Nav.__super__.constructor.apply(this, arguments);
+        return _ref;
       }
-
-      Nav.prototype.commands = function() {
-        return [];
-      };
 
       Nav.prototype.start = function(callback) {
         Logger.debug("ARDrone nav started");
@@ -63,17 +61,12 @@
         this.defineDriverEvent({
           eventName: 'update'
         });
-        callback(null);
-        return this.device.emit('start');
-      };
-
-      Nav.prototype.stop = function() {
-        return Logger.debug("ARDrone Nav stopping");
+        return Nav.__super__.start.apply(this, arguments);
       };
 
       return Nav;
 
-    })(Cylon.Basestar);
+    })(Cylon.Driver);
   });
 
 }).call(this);

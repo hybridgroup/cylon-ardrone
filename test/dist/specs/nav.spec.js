@@ -1,6 +1,8 @@
 (function() {
   'use strict';
-  describe('Cylon.Driver.ARDrone.Nav', function() {
+  source('nav');
+
+  describe('Cylon.Drivers.ARDrone.Nav', function() {
     return it('needs test coverage');
   });
 

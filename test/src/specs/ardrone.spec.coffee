@@ -1,4 +1,6 @@
 'use strict';
 
-describe 'Cylon.Adaptor.Ardrone', ->
+source 'ardrone'
+
+describe 'Cylon.Adaptors.Ardrone', ->
   it 'needs test coverage'

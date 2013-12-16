@@ -13,20 +13,20 @@
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
+  require('./cylon-ardrone');
+
   LibARDrone = require('ar-drone');
 
   namespace = require('node-namespace');
 
   require('./commands');
 
-  namespace("Cylon.Adaptor", function() {
+  namespace("Cylon.Adaptors", function() {
     return this.ARDrone = (function(_super) {
       __extends(ARDrone, _super);
 
       function ARDrone(opts) {
         ARDrone.__super__.constructor.apply(this, arguments);
-        this.connection = opts.connection;
-        this.name = opts.name;
         this.ardrone = null;
         this.connector = null;
         this.myself = this;
@@ -37,7 +37,6 @@
       };
 
       ARDrone.prototype.connect = function(callback) {
-        Logger.debug("Connecting to ARDrone '" + this.name + "'...");
         this.ardrone = new LibARDrone.createClient({
           ip: this.connection.port.toString()
         });
@@ -70,17 +69,12 @@
         this.defineAdaptorEvent({
           eventName: 'altitudeChange'
         });
-        callback(null);
-        return this.connection.emit('connect');
-      };
-
-      ARDrone.prototype.disconnect = function() {
-        return Logger.debug("Disconnecting from ARDrone '" + this.name + "'...");
+        return ARDrone.__super__.connect.apply(this, arguments);
       };
 
       return ARDrone;
 
-    })(Cylon.Basestar);
+    })(Cylon.Adaptor);
   });
 
 }).call(this);
