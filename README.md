@@ -65,15 +65,20 @@ Thank you!
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
 ## Release History
-Version 0.1.0 - Initial release that can fly
 
-Version 0.1.1 - Correct events for navdata
+[![NPM](https://nodei.co/npm/cylon-ardrone.png?compact=true)](https://nodei.co/npm/cylon-ardrone/)
 
-Version 0.2.0 - Now update and specific events too
+Version 0.5.0 - Release for cylon 0.8.0
+
+Version 0.4.0 - Newer Cylon.Basestar proxying
 
 Version 0.3.0 - Refactor to use Cylon.Basestar
 
-Version 0.4.0 - Newer Cylon.Basestar proxying
+Version 0.2.0 - Now update and specific events too
+
+Version 0.1.1 - Correct events for navdata
+
+Version 0.1.0 - Initial release that can fly
 
 ## License
 Copyright (c) 2013 The Hybrid Group. Licensed under the Apache 2.0 license.
