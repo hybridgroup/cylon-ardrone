@@ -16,15 +16,9 @@ namespace "Cylon.Drivers.ARDrone", ->
     start: (callback) ->
       Logger.debug "ARDrone nav started"
 
-      @defineDriverEvent(eventName: 'navdata')
-      @defineDriverEvent(eventName: 'landing')
-      @defineDriverEvent(eventName: 'landed')
-      @defineDriverEvent(eventName: 'takeoff')
-      @defineDriverEvent(eventName: 'hovering')
-      @defineDriverEvent(eventName: 'flying')
-      @defineDriverEvent(eventName: 'lowBattery')
-      @defineDriverEvent(eventName: 'batteryChange')
-      @defineDriverEvent(eventName: 'altitudeChange')
-      @defineDriverEvent(eventName: 'update')
+      events = ['navdata', 'landing', 'landed', 'takeoff', 'hovering', 'flying',
+                'lowBattery', 'batteryChange', 'altitudeChange', 'update']
+
+      @defineDriverEvent(eventName: event) for event in events
 
       super

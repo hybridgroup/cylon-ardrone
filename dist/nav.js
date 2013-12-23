@@ -30,37 +30,15 @@
       }
 
       Nav.prototype.start = function(callback) {
+        var event, events, _i, _len;
         Logger.debug("ARDrone nav started");
-        this.defineDriverEvent({
-          eventName: 'navdata'
-        });
-        this.defineDriverEvent({
-          eventName: 'landing'
-        });
-        this.defineDriverEvent({
-          eventName: 'landed'
-        });
-        this.defineDriverEvent({
-          eventName: 'takeoff'
-        });
-        this.defineDriverEvent({
-          eventName: 'hovering'
-        });
-        this.defineDriverEvent({
-          eventName: 'flying'
-        });
-        this.defineDriverEvent({
-          eventName: 'lowBattery'
-        });
-        this.defineDriverEvent({
-          eventName: 'batteryChange'
-        });
-        this.defineDriverEvent({
-          eventName: 'altitudeChange'
-        });
-        this.defineDriverEvent({
-          eventName: 'update'
-        });
+        events = ['navdata', 'landing', 'landed', 'takeoff', 'hovering', 'flying', 'lowBattery', 'batteryChange', 'altitudeChange', 'update'];
+        for (_i = 0, _len = events.length; _i < _len; _i++) {
+          event = events[_i];
+          this.defineDriverEvent({
+            eventName: event
+          });
+        }
         return Nav.__super__.start.apply(this, arguments);
       };
 
