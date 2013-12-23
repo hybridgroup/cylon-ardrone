@@ -29,14 +29,9 @@ namespace "Cylon.Adaptors", ->
 
       @proxyMethods Cylon.ARDrone.Commands, @ardrone, @myself
 
-      @defineAdaptorEvent eventName: 'navdata'
-      @defineAdaptorEvent eventName: 'landing'
-      @defineAdaptorEvent eventName: 'landed'
-      @defineAdaptorEvent eventName: 'takeoff'
-      @defineAdaptorEvent eventName: 'hovering'
-      @defineAdaptorEvent eventName: 'flying'
-      @defineAdaptorEvent eventName: 'lowBattery'
-      @defineAdaptorEvent eventName: 'batteryChange'
-      @defineAdaptorEvent eventName: 'altitudeChange'
+      events = ['navdata', 'landing', 'landed', 'takeoff', 'hovering', 'flying',
+                'lowBattery', 'batteryChange', 'altitudeChange']
+
+      @defineAdaptorEvent(eventName: event) for event in events
 
       super

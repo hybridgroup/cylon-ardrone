@@ -37,38 +37,19 @@
       };
 
       ARDrone.prototype.connect = function(callback) {
+        var event, events, _i, _len;
         this.ardrone = new LibARDrone.createClient({
           ip: this.connection.port.toString()
         });
         this.connector = this.ardrone;
         this.proxyMethods(Cylon.ARDrone.Commands, this.ardrone, this.myself);
-        this.defineAdaptorEvent({
-          eventName: 'navdata'
-        });
-        this.defineAdaptorEvent({
-          eventName: 'landing'
-        });
-        this.defineAdaptorEvent({
-          eventName: 'landed'
-        });
-        this.defineAdaptorEvent({
-          eventName: 'takeoff'
-        });
-        this.defineAdaptorEvent({
-          eventName: 'hovering'
-        });
-        this.defineAdaptorEvent({
-          eventName: 'flying'
-        });
-        this.defineAdaptorEvent({
-          eventName: 'lowBattery'
-        });
-        this.defineAdaptorEvent({
-          eventName: 'batteryChange'
-        });
-        this.defineAdaptorEvent({
-          eventName: 'altitudeChange'
-        });
+        events = ['navdata', 'landing', 'landed', 'takeoff', 'hovering', 'flying', 'lowBattery', 'batteryChange', 'altitudeChange'];
+        for (_i = 0, _len = events.length; _i < _len; _i++) {
+          event = events[_i];
+          this.defineAdaptorEvent({
+            eventName: event
+          });
+        }
         return ARDrone.__super__.connect.apply(this, arguments);
       };
 
