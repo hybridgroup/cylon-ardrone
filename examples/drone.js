@@ -8,10 +8,10 @@ Cylon.robot({
 
     after((10).seconds(), function() {
       my.drone.land();
-    }
+    });
 
     after((15).seconds(), function() {
       my.drone.stop();
-    }
+    });
   }
 }).start();
