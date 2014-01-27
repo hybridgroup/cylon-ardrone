@@ -21,54 +21,62 @@ namespace "Cylon.Drivers.ARDrone", ->
 
     # Public: Moves the drone forward by a specified interval (0-1)
     #
-    # Returns nothing
-    # Example:
+    # speed - integer speed drone should move forward (0-1)
+    #
+    # Examples
     #
     #     my.drone.forward(1)
+    #
+    # Returns nothing
     forward: (args...) ->
       @connection.front(args...)
 
     # Public: Makes the drone do a front-flip
     #
-    # Returns nothing
-    # Example:
+    # Examples
     #
     #     my.drone.frontflip()
+    #
+    # Returns nothing
     frontFlip: ->
       @connection.animate 'flipAhead', 150
 
     # Public: Makes the drone do a back-flip
     #
-    # Returns nothing
-    # Example:
+    # Examples
     #
     #     my.drone.backflip()
+    #
+    # Returns nothing
     backFlip: ->
       @connection.animate 'flipBehind', 150
 
     # Public: Makes the drone do a left-flip
     #
-    # Returns nothing
-    # Example:
+    # Examples
     #
     #     my.drone.leftflip()
+    #
+    # Returns nothing
     leftFlip: ->
       @connection.animate 'flipLeft', 150
 
     # Public: Makes the drone do a right-flip
     #
-    # Returns nothing
-    # Example:
+    # Examples
     #
     #     my.drone.rightflip()
+    #
+    # Returns nothing
     rightFlip: ->
       @connection.animate 'flipRight', 150
 
     # Public: Makes the drone wave
     #
-    # Returns nothing
-    # Example:
+    # Examples
     #
     #     my.drone.wave()
+    #
+    # Returns nothing
     wave: ->
       @connection.animate 'wave', 750
