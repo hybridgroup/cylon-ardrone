@@ -29,6 +29,9 @@
         return _ref;
       }
 
+      # Public: Starts the driver
+      #
+      # Returns null
       Nav.prototype.start = function(callback) {
         var event, events, _i, _len;
         Logger.debug("ARDrone nav started");
