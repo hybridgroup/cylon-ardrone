@@ -13,6 +13,9 @@ require './commands'
 
 namespace "Cylon.Drivers.ARDrone", ->
   class @Nav extends Cylon.Driver
+  	# Public: Starts the driver
+    #
+    # Returns null
     start: (callback) ->
       Logger.debug "ARDrone nav started"
 
