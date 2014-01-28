@@ -33,72 +33,28 @@
         return Cylon.ARDrone.Commands;
       };
 
-      # Public: Moves the drone forward by a specified interval (0-1)
-      #
-      # speed - integer speed drone should move forward (0-1)
-      #
-      # Examples
-      #
-      #     my.drone.forward(1)
-      #
-      # Returns nothing
       Flight.prototype.forward = function() {
         var args, _ref;
         args = 1 <= arguments.length ? __slice.call(arguments, 0) : [];
         return (_ref = this.connection).front.apply(_ref, args);
       };
 
-      # Public: Makes the drone do a front-flip
-      #
-      # Examples
-      #
-      #     my.drone.frontflip()
-      #
-      # Returns nothing
       Flight.prototype.frontFlip = function() {
         return this.connection.animate('flipAhead', 150);
       };
 
-      # Public: Makes the drone do a back-flip
-      #
-      # Examples
-      #
-      #     my.drone.backflip()
-      #
-      # Returns nothing
       Flight.prototype.backFlip = function() {
         return this.connection.animate('flipBehind', 150);
       };
 
-      # Public: Makes the drone do a left-flip
-      #
-      # Examples
-      #
-      #     my.drone.leftflip()
-      #
-      # Returns nothing
       Flight.prototype.leftFlip = function() {
         return this.connection.animate('flipLeft', 150);
       };
 
-      # Public: Makes the drone do a right-flip
-      #
-      # Examples
-      #
-      #     my.drone.rightflip()
-      #
-      # Returns nothing
       Flight.prototype.rightFlip = function() {
         return this.connection.animate('flipRight', 150);
       };
 
-      # Public: Makes the drone wave
-      #
-      # Examples
-      #
-      #     my.drone.wave()
-      #
-      # Returns nothing
       Flight.prototype.wave = function() {
         return this.connection.animate('wave', 750);
       };
