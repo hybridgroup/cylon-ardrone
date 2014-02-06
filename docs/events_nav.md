@@ -1,4 +1,4 @@
-# Navigation Events
+# Events
 
 ## update
 
