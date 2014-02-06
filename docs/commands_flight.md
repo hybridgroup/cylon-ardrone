@@ -26,7 +26,7 @@ the drone reports it has landed.
 
 `nil`
 
-## stop 
+## stop() 
 
 Sets all drone movement commands to `0`, making it effectively hover in place.
 
@@ -200,7 +200,7 @@ speed can be a value from `0` to `1`.
 
 `nil`
 
-## disableEmergency
+## disableEmergency() 
 
 Causes the emergency REF bit to be set to 1 until 
 `navdata.droneState.emergencyLanding` is `0.` This recovers a drone that has 
@@ -211,7 +211,7 @@ lights. It is also done implicitly when creating a new high level client.
 
 `nil`
 
-## forward
+## forward() 
 
 Causes the drone to go forward.
 
@@ -219,7 +219,7 @@ Causes the drone to go forward.
 
 `nil`
 
-## frontFlip
+## frontFlip() 
 
 Tells the drone to do a front-flip. 
 
@@ -231,7 +231,7 @@ animate('flipAhead', 150)
 
 `nil`
 
-## backFlip
+## backFlip() 
 
 Tells the drone to do a back-flip.
 
@@ -243,7 +243,7 @@ animate("flipBehind", 150)
 
 `nil`
 
-## leftFlip
+## leftFlip() 
 
 Tells the drone to do a left-flip.
 
@@ -255,7 +255,7 @@ animate("flipLeft", 150)
 
 `nil`
 
-## rightFlip
+## rightFlip() 
 
 Tells the drone to do a right-flip.
 
