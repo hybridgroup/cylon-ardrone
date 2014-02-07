@@ -77,7 +77,7 @@ Thank you!
   
 ## Release History
 
-[![NPM](https://nodei.co/npm/cylon-ardrone.png?compact=true)](https://nodei.co/npm/cylon-ardrone/)
+Version 0.7.0 - Update to cylon 0.10.0, bugfixes
 
 Version 0.6.0 - Release for cylon 0.9.0
 
