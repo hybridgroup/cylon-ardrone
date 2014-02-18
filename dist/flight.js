@@ -33,6 +33,10 @@
         return Cylon.ARDrone.Commands;
       };
 
+      Flight.prototype.hover = function() {
+        return this.connection.stop();
+      };
+
       Flight.prototype.forward = function() {
         var args, _ref;
         args = 1 <= arguments.length ? __slice.call(arguments, 0) : [];

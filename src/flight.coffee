@@ -18,6 +18,8 @@ namespace "Cylon.Drivers.ARDrone", ->
       @proxyMethods Cylon.ARDrone.Commands, @connection, this
 
     commands: -> Cylon.ARDrone.Commands
+    hover: ->
+      @connection.stop()
 
     # Public: Moves the drone forward by a specified interval (0-1)
     #

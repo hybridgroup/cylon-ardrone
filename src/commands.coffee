@@ -190,5 +190,7 @@ namespace "Cylon.ARDrone", ->
     #   animate("wave", 750)
     #
     # Returns nil
-    'wave' 
+    'wave',
+    'getPngStream',
+    'hover'
   ]
