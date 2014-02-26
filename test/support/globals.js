@@ -8,12 +8,17 @@ var path = require('path');
 var chai = require('chai');
 var sinonChai = require('sinon-chai');
 
+require('cylon');
+Logger.setup(false);
+
 global.chai = chai;
 global.should = chai.should();
 global.expect = chai.expect;
 global.assert = chai.assert;
 global.AssertionError = chai.AssertionError;
 global.sinon = require('sinon');
+global.spy = sinon.spy;
+global.stub = sinon.stub;
 
 // can be used by test modules to require production modules,
 // relative to the base path (where the Gruntfile.js also lives)
