@@ -35,3 +35,5 @@ namespace "Cylon.Adaptors", ->
       @defineAdaptorEvent(eventName: event) for event in events
 
       super
+
+module.exports = Cylon.Adaptors.ARDrone

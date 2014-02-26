@@ -47,4 +47,6 @@
     })(Cylon.Driver);
   });
 
+  module.exports = Cylon.Drivers.ARDrone.Nav;
+
 }).call(this);

@@ -68,4 +68,6 @@
     })(Cylon.Driver);
   });
 
+  module.exports = Cylon.Drivers.ARDrone.Flight;
+
 }).call(this);

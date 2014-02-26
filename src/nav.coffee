@@ -13,8 +13,8 @@ require './commands'
 
 namespace "Cylon.Drivers.ARDrone", ->
   class @Nav extends Cylon.Driver
-  
-  	# Public: Starts the driver
+
+    # Public: Starts the driver
     #
     # Returns null
     start: (callback) ->
@@ -26,3 +26,5 @@ namespace "Cylon.Drivers.ARDrone", ->
       @defineDriverEvent(eventName: event) for event in events
 
       super
+
+module.exports = Cylon.Drivers.ARDrone.Nav

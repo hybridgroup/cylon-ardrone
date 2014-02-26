@@ -58,4 +58,6 @@
     })(Cylon.Adaptor);
   });
 
+  module.exports = Cylon.Adaptors.ARDrone;
+
 }).call(this);

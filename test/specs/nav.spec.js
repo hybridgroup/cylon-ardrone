@@ -1,31 +1,22 @@
-(function() {
-  'use strict';
-  var EventEmitter;
+'use strict';
 
-  source('nav');
+var EventEmitter = require('events').EventEmitter,
+    Nav = source('nav');
 
-  EventEmitter = require('events').EventEmitter;
+describe('Cylon.Drivers.ARDrone.Nav', function() {
+  var driver = new Nav({ device: new EventEmitter });
 
-  describe('Cylon.Drivers.ARDrone.Nav', function() {
-    var nav;
-    nav = new Cylon.Drivers.ARDrone.Nav({
-      device: new EventEmitter
-    });
-    return it("defines driver events on 'start' function", function() {
-      var event, events, spy, _i, _len, _results;
-      events = ['navdata', 'landing', 'landed', 'takeoff', 'hovering', 'flying', 'lowBattery', 'batteryChange', 'altitudeChange', 'update'];
-      spy = sinon.spy();
-      nav.defineDriverEvent = spy;
-      nav.start(function() {});
-      _results = [];
-      for (_i = 0, _len = events.length; _i < _len; _i++) {
-        event = events[_i];
-        _results.push(assert(spy.calledWith({
-          eventName: event
-        })));
-      }
-      return _results;
-    });
+  it("defines driver events on 'start' function", function() {
+    var events = [
+      'navdata', 'landing', 'landed', 'takeoff', 'hovering', 'flying',
+      'lowBattery', 'batteryChange', 'altitudeChange', 'update'
+    ];
+
+    driver.defineDriverEvent = spy();
+    driver.start(function() {});
+
+    for (var i = 0; i < events.length; i++) {
+      assert(driver.defineDriverEvent.calledWith({eventName: events[i] }));
+    }
   });
-
-}).call(this);
+});

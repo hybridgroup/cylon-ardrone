@@ -82,3 +82,5 @@ namespace "Cylon.Drivers.ARDrone", ->
     # Returns nothing
     wave: ->
       @connection.animate 'wave', 750
+
+module.exports = Cylon.Drivers.ARDrone.Flight
