@@ -77,6 +77,8 @@ Thank you!
   
 ## Release History
 
+Version 0.8.0 - Update to cylon 0.11.0, refactor into pure JavaScript
+
 Version 0.7.0 - Update to cylon 0.10.0, bugfixes
 
 Version 0.6.0 - Release for cylon 0.9.0

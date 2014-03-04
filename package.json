@@ -1,6 +1,6 @@
 {
   "name": "cylon-ardrone",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "main": "lib/cylon-ardrone.js",
   "description": "Cylon module for the Parrot ARDrone 2.0",
   "homepage": "http://cylonjs.com",
@@ -29,6 +29,6 @@
   "dependencies": {
     "ar-drone": ">= 0.3.0",
     "node-namespace": "~1.0.0",
-    "cylon": ">= 0.10.0"
+    "cylon": ">= 0.11.0"
   }
 }
