@@ -22,7 +22,7 @@ describe('Cylon.Adaptors.Ardrone', function() {
   it("defines adaptor events on the 'connect' method", function() {
     adaptor.defineAdaptorEvent = spy();
     adaptor.connection = new EventEmitter;
-    adaptor.connection.port = { toString: function() { "192.168.1.1"; } };
+    adaptor.connection.port = "192.168.1.1";
 
     adaptor.connect(function() {});
 
