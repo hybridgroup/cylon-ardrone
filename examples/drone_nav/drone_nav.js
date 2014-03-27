@@ -9,6 +9,6 @@ Cylon.robot({
 
   work: function(my) {
     my.drone.config('general:navdata_demo', 'TRUE');
-    my.nav.on('update', function(data) { console.log(data); });
+    my.nav.on('update', console.log);
   }
 }).start();

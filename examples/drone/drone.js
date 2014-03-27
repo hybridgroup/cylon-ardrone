@@ -6,7 +6,7 @@ Cylon.robot({
 
   work: function(my) {
     my.drone.takeoff();
-    after(10..seconds(), function() { my.drone.land(); });
-    after(15..seconds(), function() { my.drone.stop(); });
+    after((10).seconds(), my.drone.land);
+    after((15).seconds(), my.drone.stop);
   }
 }).start();
