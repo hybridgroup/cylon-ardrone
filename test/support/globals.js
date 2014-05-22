@@ -8,8 +8,8 @@ var path = require('path');
 var chai = require('chai');
 var sinonChai = require('sinon-chai');
 
-require('cylon');
-Logger.setup(false);
+var Cylon = require('cylon');
+Cylon.Logger.setup(false);
 
 global.chai = chai;
 global.should = chai.should();

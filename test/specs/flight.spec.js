@@ -1,9 +1,9 @@
 "use strict";
 
-source('flight');
+var Flight = source('flight');
 
 describe('Cylon.Drivers.ARDrone.Flight', function() {
-  var driver = new Cylon.Drivers.ARDrone.Flight({ device: {} });
+  var driver = new Flight({ device: {} });
 
   driver.connection = {
     animate: spy(),

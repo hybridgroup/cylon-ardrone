@@ -1,7 +1,8 @@
 'use strict';
 
-var EventEmitter = require('events').EventEmitter,
-    Nav = source('nav');
+var EventEmitter = require('events').EventEmitter;
+
+var Nav = source('nav');
 
 describe('Cylon.Drivers.ARDrone.Nav', function() {
   var driver = new Nav({ device: new EventEmitter });

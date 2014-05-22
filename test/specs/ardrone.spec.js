@@ -1,7 +1,8 @@
 "use strict";
 
-var EventEmitter = require('events').EventEmitter,
-    ARDrone = source('ardrone');
+var EventEmitter = require('events').EventEmitter;
+
+var ARDrone = source('ardrone');
 
 describe('Cylon.Adaptors.Ardrone', function() {
   var adaptor = new ARDrone;
