@@ -21,7 +21,7 @@ describe('Cylon.Adaptors.Ardrone', function() {
   });
 
   it("defines adaptor events on the 'connect' method", function() {
-    adaptor.defineAdaptorEvent = spy();
+    stub(adaptor, 'defineAdaptorEvent');
     adaptor.connection = new EventEmitter;
     adaptor.connection.port = "192.168.1.1";
 
@@ -33,7 +33,7 @@ describe('Cylon.Adaptors.Ardrone', function() {
     ];
 
     for (var i = 0; i < events.length; i++) {
-      assert(adaptor.defineAdaptorEvent.calledWith({ eventName: events[i] }))
+      expect(adaptor.defineAdaptorEvent).to.be.calledWith({ eventName: events[i] });
     }
   });
 });
