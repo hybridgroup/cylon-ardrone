@@ -1,7 +1,8 @@
 'use strict';
 
-var EventEmitter = require('events').EventEmitter,
-    Nav = source('nav');
+var EventEmitter = require('events').EventEmitter;
+
+var Nav = source('nav');
 
 describe('Cylon.Drivers.ARDrone.Nav', function() {
   var driver = new Nav({ device: new EventEmitter });
@@ -12,11 +13,13 @@ describe('Cylon.Drivers.ARDrone.Nav', function() {
       'lowBattery', 'batteryChange', 'altitudeChange', 'update'
     ];
 
-    driver.defineDriverEvent = spy();
+    stub(driver, 'defineDriverEvent');
     driver.start(function() {});
 
     for (var i = 0; i < events.length; i++) {
-      assert(driver.defineDriverEvent.calledWith({eventName: events[i] }));
+      expect(driver.defineDriverEvent).to.be.calledWith({
+        eventName: events[i]
+      });
     }
   });
 });

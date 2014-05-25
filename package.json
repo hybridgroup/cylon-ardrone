@@ -25,7 +25,6 @@
 
   "dependencies": {
     "ar-drone":       ">= 0.3.0",
-    "node-namespace": "~1.0.0",
     "cylon":           ">= 0.12.0"
   }
 }
