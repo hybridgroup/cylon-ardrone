@@ -7,19 +7,29 @@ var Nav = source('nav');
 describe('Cylon.Drivers.ARDrone.Nav', function() {
   var driver = new Nav({ device: new EventEmitter });
 
-  it("defines driver events on 'start' function", function() {
-    var events = [
-      'navdata', 'landing', 'landed', 'takeoff', 'hovering', 'flying',
-      'lowBattery', 'batteryChange', 'altitudeChange', 'update'
-    ];
+  describe("#start", function() {
+    var callback;
 
-    stub(driver, 'defineDriverEvent');
-    driver.start(function() {});
+    beforeEach(function() {
+      callback = spy();
+      stub(driver, 'defineDriverEvent');
+    });
 
-    for (var i = 0; i < events.length; i++) {
-      expect(driver.defineDriverEvent).to.be.calledWith({
-        eventName: events[i]
+    afterEach(function() {
+      driver.defineDriverEvent.restore();
+    });
+
+    it("defines driver events for the ARDrone", function() {
+      driver.start(callback);
+
+      var events = [
+        'navdata', 'landing', 'landed', 'takeoff', 'hovering', 'flying',
+        'lowBattery', 'batteryChange', 'altitudeChange', 'update'
+      ];
+
+      events.forEach(function(e) {
+        expect(driver.defineDriverEvent).to.be.calledWith({ eventName: e });
       });
-    }
+    });
   });
 });
