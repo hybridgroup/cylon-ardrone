@@ -1,17 +1,70 @@
-"use strict";
+'use strict';
 
-var ardrone = source("cylon-ardrone");
+var module = source('cylon-ardrone');
 
-describe("Cylon.ARDrone", function() {
-  it("can register", function() {
-    expect(ardrone.register).to.be.a('function');
+var ARDrone = source('ardrone'),
+    Flight = source('flight'),
+    Nav = source('nav');
+
+describe('cylon-ardrone', function() {
+  describe('#register', function() {
+    var bot;
+
+    before(function() {
+      bot = { registerAdaptor: spy(), registerDriver: spy() };
+      module.register(bot);
+    });
+
+    it('registers the ardrone adaptor with the passed Robot', function() {
+      expect(bot.registerAdaptor).to.be.calledWith('cylon-ardrone', 'ardrone');
+    });
+
+    it('registers the ardrone driver with the passed Robot', function() {
+      expect(bot.registerDriver).to.be.calledWith('cylon-ardrone', 'ardrone');
+    });
+
+    it('registers the ardroneNav driver with the passed Robot', function() {
+      expect(bot.registerDriver).to.be.calledWith('cylon-ardrone', 'ardroneNav');
+    });
   });
 
-  it("can create an adaptor", function() {
-    expect(ardrone.adaptor()).to.be.a('object');
+  describe("#adaptor", function() {
+    it('returns a new ARDrone adaptor instance', function() {
+      expect(module.adaptor({})).to.be.an.instanceOf(ARDrone);
+    });
   });
 
-  it("can create a driver", function() {
-    expect(ardrone.driver({ name: 'ardrone', device: {} })).to.be.a('object');
+  describe("#driver", function() {
+    var args;
+
+    beforeEach(function() {
+      args = { device: {} };
+    });
+
+    context("when passed 'ardrone'", function() {
+      beforeEach(function() {
+        args.name = 'ardrone';
+      });
+
+      it("returns an instance of the Flight driver", function() {
+        expect(module.driver(args)).to.be.an.instanceOf(Flight);
+      });
+    });
+
+    context("when passed 'ardroneNav'", function() {
+      beforeEach(function() {
+        args.name = 'ardroneNav';
+      });
+
+      it("returns an instance of the Nav driver", function() {
+        expect(module.driver(args)).to.be.an.instanceOf(Nav);
+      });
+    });
+
+    context("when passed another value", function() {
+      it("returns null", function() {
+        expect(module.driver()).to.be.eql(null);
+      });
+    });
   });
 });
