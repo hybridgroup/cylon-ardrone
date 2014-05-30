@@ -10,8 +10,7 @@ Cylon.robot({
 
   devices: [
     { name: 'drone', driver: 'ardrone', connection: 'ardrone' },
-    { name: 'window', driver: 'window', conneciton: 'opencv' },
-    { name: 'opencv', driver: 'opencv', conneciton: 'opencv' }
+    { name: 'window', driver: 'window', connection: 'opencv' }
   ],
 
   work: function(my) {
