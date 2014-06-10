@@ -25,7 +25,7 @@ describe('Cylon.Adaptors.Ardrone', function() {
   });
 
   describe("#commands", function() {
-    var commands = drone.commands();
+    var commands = drone.commands;
 
     it("is an array of strings", function() {
       expect(commands).to.be.an('array');

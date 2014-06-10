@@ -13,7 +13,7 @@ describe('Cylon.Drivers.ARDrone.Flight', function() {
 
   describe("#commands", function() {
     it("returns all ARDrone commands", function() {
-      var commands = driver.commands();
+      var commands = driver.commands;
       expect(commands).to.be.a('array');
 
       for(var i = 0; i < commands.length; i++) {
