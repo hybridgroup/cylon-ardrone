@@ -13,9 +13,8 @@ Want to use the Go programming language to power your robots? Check out our sist
 ## Getting Started
 Install the module with: `npm install cylon-ardrone`
 
-## Examples
+## Example
 
-### JavaScript
 ```javascript
 var Cylon = require('cylon');
 
@@ -25,35 +24,14 @@ Cylon.robot({
 
   work: function(my) {
     my.drone.takeoff();
-    after((10).seconds(), function() { 
+    after((10).seconds(), function() {
       my.drone.land();
     });
-    after((15).seconds(), function() { 
+    after((15).seconds(), function() {
       my.drone.stop();
-    });    
+    });
   }
 }).start();
-```
-
-### CoffeeScript
-```
-Cylon = require 'cylon'
-
-Cylon.robot
-  connection:
-    name: 'ardrone', adaptor: 'ardrone', port: '192.168.1.1'
-
-  device:
-    name: 'ardrone', driver: 'ardrone'
-
-  work: (my) ->
-    my.drone.takeoff()
-    after 10.seconds(), ->
-      my.drone.land()
-    after 15.seconds(), ->
-      my.drone.stop()
-
-.start()
 ```
 
 ## Documentation
@@ -74,7 +52,7 @@ Thank you!
 * All pull requests should be "fast forward"
   * If there are commits after yours use “git rebase -i <new_head_branch>”
   * If you have local changes you may need to use “git stash”
-  
+
 ## Release History
 
 Version 0.11.1 - Add peerDependencies to package.json
