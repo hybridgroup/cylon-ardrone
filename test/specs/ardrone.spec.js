@@ -79,7 +79,7 @@ describe('Cylon.Adaptors.Ardrone', function() {
       ];
 
       events.forEach(function(e) {
-        expect(drone.defineAdaptorEvent).to.be.calledWith({ eventName: e });
+        expect(drone.defineAdaptorEvent).to.be.calledWith(e);
       });
     });
   });
