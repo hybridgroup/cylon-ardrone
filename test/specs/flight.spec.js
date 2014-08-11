@@ -12,13 +12,16 @@ describe('Cylon.Drivers.ARDrone.Flight', function() {
   };
 
   describe("#commands", function() {
-    it("returns all ARDrone commands", function() {
+    it("contains snake_cased versions of all ARDrone commands", function() {
       var commands = driver.commands;
-      expect(commands).to.be.a('array');
+      expect(commands).to.be.a('object');
 
-      for(var i = 0; i < commands.length; i++) {
-        expect(commands[i]).to.be.a('string');
-      };
+      for (var c in commands) {
+        var command = commands[c];
+        expect(c).to.be.a('string');
+        expect(c).to.match(/^[a-z_]*$/);
+        expect(command).to.be.a('function');
+      }
     });
   });
 
