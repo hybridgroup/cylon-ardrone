@@ -3,13 +3,19 @@
 var Flight = source('flight');
 
 describe('Cylon.Drivers.ARDrone.Flight', function() {
-  var driver = new Flight({ device: {} });
+  var driver;
 
-  driver.connection = {
-    animate: spy(),
-    front: spy(),
-    stop: spy()
-  };
+  beforeEach(function() {
+    driver = new Flight({
+      device: {
+        connection: {
+          animate: spy(),
+          front: spy(),
+          stop: spy()
+        }
+      }
+    });
+  });
 
   describe("#commands", function() {
     it("contains snake_cased versions of all ARDrone commands", function() {

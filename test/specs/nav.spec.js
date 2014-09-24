@@ -5,7 +5,15 @@ var EventEmitter = require('events').EventEmitter;
 var Nav = source('nav');
 
 describe('Cylon.Drivers.ARDrone.Nav', function() {
-  var driver = new Nav({ device: new EventEmitter });
+  var driver;
+
+  beforeEach(function() {
+    driver = new Nav({
+      device: {
+        connection: {}
+      }
+    })
+  });
 
   describe("#start", function() {
     var callback;
