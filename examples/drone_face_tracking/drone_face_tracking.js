@@ -1,6 +1,6 @@
 var Cylon = require('cylon');
 
-var haarcascade = __dirname + "/haarcascade_frontalface_alt.xml"
+var haarcascade = __dirname + "/haarcascade_frontalface_alt.xml";
 
 Cylon.robot({
   connections: [
