@@ -25,11 +25,11 @@ cylon.robot({
 })
   .on("ready", function(bot) {
     var offset = 32767.0;
-    var right_stick = {
+    var rightStick = {
       x: 0.0,
       y: 0.0
     };
-    var left_stick = {
+    var leftStick = {
       x: 0.0,
       y: 0.0
     };
@@ -43,20 +43,20 @@ cylon.robot({
       bot.drone.land();
     });
     bot.controller.on("right_x:move", function(data) {
-      right_stick.x = data;
+      rightStick.x = data;
     });
     bot.controller.on("right_y:move", function(data) {
-      right_stick.y = data;
+      rightStick.y = data;
     });
     bot.controller.on("left_x:move", function(data) {
-      left_stick.x = data;
+      leftStick.x = data;
     });
     bot.controller.on("left_y:move", function(data) {
-      left_stick.y = data;
+      leftStick.y = data;
     });
 
     setInterval(function() {
-      var pair = left_stick;
+      var pair = leftStick;
       if (pair.y < 5) {
         bot.drone.front(validatePitch(pair.y, offset));
       } else if (pair.y > 5) {
@@ -70,7 +70,7 @@ cylon.robot({
     }, 0);
 
     setInterval(function() {
-      var pair = right_stick;
+      var pair = rightStick;
       if (pair.y < 5) {
         bot.drone.up(validatePitch(pair.y, offset));
       } else if (pair.y > 5) {
