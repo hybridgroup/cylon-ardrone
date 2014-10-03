@@ -8,7 +8,7 @@ Want to use Ruby on robots? Check out our sister project Artoo (http://artoo.io)
 
 Want to use the Go programming language to power your robots? Check out our sister project Gobot (http://gobot.io).
 
-[![Build Status](https://secure.travis-ci.org/hybridgroup/cylon-ardrone.png?branch=master)](http://travis-ci.org/hybridgroup/cylon-ardrone)
+[![Build Status](https://secure.travis-ci.org/hybridgroup/cylon-ardrone.png?branch=master)](http://travis-ci.org/hybridgroup/cylon-ardrone) [![Code Climate](https://codeclimate.com/github/hybridgroup/cylon-ardrone/badges/gpa.svg)](https://codeclimate.com/github/hybridgroup/cylon-ardrone) [![Test Coverage](https://codeclimate.com/github/hybridgroup/cylon-ardrone/badges/coverage.svg)](https://codeclimate.com/github/hybridgroup/cylon-ardrone)
 
 ## Getting Started
 Install the module with: `npm install cylon-ardrone`
