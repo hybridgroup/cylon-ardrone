@@ -35,7 +35,7 @@ describe('cylon-ardrone', function() {
 
     context("when passed 'ardrone'", function() {
       beforeEach(function() {
-        args.name = 'ardrone';
+        args.driver = 'ardrone';
       });
 
       it("returns an instance of the Flight driver", function() {
@@ -45,7 +45,7 @@ describe('cylon-ardrone', function() {
 
     context("when passed 'ardroneNav'", function() {
       beforeEach(function() {
-        args.name = 'ardrone-nav';
+        args.driver = 'ardrone-nav';
       });
 
       it("returns an instance of the Nav driver", function() {
