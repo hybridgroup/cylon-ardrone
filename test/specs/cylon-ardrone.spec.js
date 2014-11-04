@@ -7,24 +7,16 @@ var ARDrone = source('ardrone'),
     Nav = source('nav');
 
 describe('cylon-ardrone', function() {
-  describe('#register', function() {
-    var bot;
 
-    before(function() {
-      bot = { registerAdaptor: spy(), registerDriver: spy() };
-      module.register(bot);
+  describe("#adaptors", function() {
+    it('is an array of supplied adaptors', function() {
+      expect(module.adaptors).to.be.eql(['ardrone']);
     });
+  });
 
-    it('registers the ardrone adaptor with the passed Robot', function() {
-      expect(bot.registerAdaptor).to.be.calledWith('cylon-ardrone', 'ardrone');
-    });
-
-    it('registers the ardrone driver with the passed Robot', function() {
-      expect(bot.registerDriver).to.be.calledWith('cylon-ardrone', 'ardrone');
-    });
-
-    it('registers the ardroneNav driver with the passed Robot', function() {
-      expect(bot.registerDriver).to.be.calledWith('cylon-ardrone', 'ardroneNav');
+  describe("#drivers", function() {
+    it('is an array of supplied drivers', function() {
+      expect(module.drivers).to.be.eql(['ardrone', 'ardrone-nav']);
     });
   });
 
@@ -53,7 +45,7 @@ describe('cylon-ardrone', function() {
 
     context("when passed 'ardroneNav'", function() {
       beforeEach(function() {
-        args.name = 'ardroneNav';
+        args.name = 'ardrone-nav';
       });
 
       it("returns an instance of the Nav driver", function() {
