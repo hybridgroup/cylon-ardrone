@@ -8,10 +8,7 @@ var LibARDrone = require('ar-drone');
 describe('Cylon.Adaptors.Ardrone', function() {
   var drone = new ARDrone({
     device: {},
-    connection: {
-      port: '127.0.0.1',
-      emit: spy()
-    }
+    port: '127.0.0.1'
   });
 
   describe("constructor", function() {

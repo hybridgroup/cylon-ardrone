@@ -9,9 +9,6 @@ describe('Cylon.Drivers.ARDrone.Nav', function() {
 
   beforeEach(function() {
     driver = new Nav({
-      device: {
-        connection: {}
-      }
     })
   });
 
