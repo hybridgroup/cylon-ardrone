@@ -6,9 +6,13 @@ var ARDrone = source('ardrone'),
 var LibARDrone = require('ar-drone');
 
 describe('Cylon.Adaptors.Ardrone', function() {
-  var drone = new ARDrone({
-    device: {},
-    port: '127.0.0.1'
+  var drone;
+
+  beforeEach(function() {
+    drone = new ARDrone({
+      device: {},
+      port: '127.0.0.1'
+    });
   });
 
   describe("constructor", function() {
@@ -19,10 +23,56 @@ describe('Cylon.Adaptors.Ardrone', function() {
     it("sets @connector to null", function() {
       expect(drone.connector).to.be.eql(null);
     });
+
+    describe("@ip", function() {
+      context("if opts.host is provided", function() {
+        it("is set to opts.host", function() {
+          drone = new ARDrone({
+            host: 'host'
+          });
+
+          expect(drone.ip).to.be.eql('host');
+        });
+      });
+
+      context("if opts.host and opts.port are provided", function() {
+        it("is set to opts.host", function() {
+          drone = new ARDrone({
+            host: 'host',
+            port: 'port',
+          });
+
+          expect(drone.ip).to.be.eql('host');
+        });
+      });
+
+      context("if opts.port is provided", function() {
+        it("is set to opts.port", function() {
+          drone = new ARDrone({
+            port: 'port',
+          });
+
+          expect(drone.ip).to.be.eql('port');
+        });
+      });
+
+      context("if neither is provided", function() {
+        it("is set to 192.168.1.1", function() {
+          drone = new ARDrone({
+          });
+
+          expect(drone.ip).to.be.eql('192.168.1.1');
+        });
+      });
+    })
   });
 
   describe("#commands", function() {
-    var commands = drone.commands;
+    var commands;
+
+    beforeEach(function() {
+      commands = drone.commands;
+    });
 
     it("is an array of strings", function() {
       expect(commands).to.be.an('array');
