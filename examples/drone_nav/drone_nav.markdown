@@ -19,10 +19,10 @@ Except this time, we're also adding a `nav` device that will bind to the
 ARDrone's navigation board.
 
       connection: { name: 'ardrone', adaptor: 'ardrone', port: '192.168.1.1' },
-      devices: [
-        { name: 'drone', driver: 'ardrone' },
-        { name: 'nav', driver: 'ardroneNav' }
-      ],
+      devices: {
+        drone: { driver: 'ardrone' },
+        nav: { driver: 'ardroneNav' }
+      },
 
 For our robot's work, it's going to enable the nav board's demo mode in the
 drone's config, and log data to the console whenever the nav board emits the
