@@ -2,10 +2,10 @@ var cylon = require('cylon');
 
 cylon.robot({
   connection: { name: 'ardrone', adaptor: 'ardrone', port: '192.168.1.1' },
-  devices: [
-    { name: 'drone', driver: 'ardrone' },
-    { name: 'nav', driver: 'ardroneNav' }
-  ]
+  devices: {
+    drone: { driver: 'ardrone' },
+    nav: { driver: 'ardroneNav' }
+  }
 })
 
 .on('ready', function(robot) {

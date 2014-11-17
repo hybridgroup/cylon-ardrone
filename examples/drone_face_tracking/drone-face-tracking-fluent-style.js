@@ -3,15 +3,15 @@ var cylon = require('cylon');
 var haarcascade = __dirname + "/haarcascade_frontalface_alt.xml";
 
 cylon.robot({
-  connections: [
-    { name: 'opencv', adaptor: 'opencv' },
-    { name: 'ardrone', adaptor: 'ardrone', port: '192.168.1.1' }
-  ],
+  connections: {
+    opencv: { adaptor: 'opencv' },
+    ardrone: { adaptor: 'ardrone', port: '192.168.1.1' }
+  },
 
-  devices: [
-    { name: 'drone', driver: 'ardrone', connection: 'ardrone' },
-    { name: 'window', driver: 'window', connection: 'opencv' }
-  ]
+  devices: {
+    drone: { driver: 'ardrone', connection: 'ardrone' },
+    window: { driver: 'window', connection: 'opencv' }
+  }
 })
 
 .on('ready', function(robot) {

@@ -14,14 +14,15 @@ function validatePitch(data, offset) {
 }
 
 cylon.robot({
-  connections: [
-    {name: 'dualshock3', adaptor: 'joystick'}, 
-    {name: 'ardrone', adaptor: 'ardrone', port: '192.168.1.1'}
-  ],
-  devices: [
-    {name: 'controller', driver: 'dualshock-3', connection: 'dualshock3'}, 
-    {name: 'drone', driver: 'ardrone', connection: 'ardrone'}
-  ]
+  connections: {
+    joystick: { adaptor: 'joystick' },
+    ardrone: { adaptor: 'ardrone', port: '192.168.1.1' }
+  },
+
+  devices: {
+    controller: { driver: 'dualshock-3', connection: 'joystick' },
+    drone: { driver: 'ardrone', connection: 'ardrone' }
+  }
 })
   .on("ready", function(bot) {
     var offset = 32767.0;
