@@ -67,26 +67,6 @@ describe('Cylon.Adaptors.Ardrone', function() {
     })
   });
 
-  describe("#commands", function() {
-    var commands;
-
-    beforeEach(function() {
-      commands = drone.commands;
-    });
-
-    it("is an array of strings", function() {
-      expect(commands).to.be.an('array');
-
-      commands.forEach(function(command) {
-        expect(command).to.be.a('string');
-      });
-    });
-
-    it("is equal to the Commands module", function() {
-      expect(commands).to.be.eql(Commands);
-    });
-  });
-
   describe("#connect", function() {
     var mockDrone = {},
         callback = spy();
