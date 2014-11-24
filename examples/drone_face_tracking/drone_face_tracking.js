@@ -11,7 +11,7 @@ Cylon.robot({
   devices: {
     drone: { driver: 'ardrone', connection: 'ardrone' },
     window: { driver: 'window', connection: 'opencv' }
-  }
+  },
 
   work: function(my) {
     this.detect = false;
@@ -68,7 +68,7 @@ Cylon.robot({
     after((13).seconds(), function() {
       self.detect = true;
 
-      every(0.3.seconds(), function() {
+      every((0.3).seconds(), function() {
         my.drone.hover();
         my.opencv.detectFaces(self.image, haarcascade);
       });

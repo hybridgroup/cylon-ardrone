@@ -1,4 +1,4 @@
-var cylon = require('cylon');
+var Cylon = require('cylon');
 
 function validatePitch(data, offset) {
   var value = Math.abs(data) / offset;
@@ -13,56 +13,57 @@ function validatePitch(data, offset) {
   }
 }
 
-cylon.robot({
-  connections: {
-    joystick: { adaptor: 'joystick' },
-    ardrone: { adaptor: 'ardrone', port: '192.168.1.1' }
-  },
+Cylon
+  .robot()
 
-  devices: {
-    controller: { driver: 'dualshock-3', connection: 'joystick' },
-    drone: { driver: 'ardrone', connection: 'ardrone' }
-  }
-})
+  .connection({ name: 'joystick', adaptor: 'joystick' })
+  .connection({ adaptor: 'ardrone', port: '192.168.1.1' })
+
+  .device({ name: 'controller', driver: 'dualshock-3', connection: 'joystick' })
+  .device({ name: 'drone', driver: 'ardrone', connection: 'ardrone' })
+
   .on("ready", function(bot) {
-    var offset = 32767.0;
-    var rightStick = {
-      x: 0.0,
-      y: 0.0
-    };
-    var leftStick = {
-      x: 0.0,
-      y: 0.0
-    };
+    var offset = 32767.0,
+        rightStick = { x: 0.0, y: 0.0 },
+        leftStick = { x: 0.0, y: 0.0 };
+
     bot.controller.on("square:press", function() {
       bot.drone.takeoff();
     });
+
     bot.controller.on("triangle:press", function() {
       bot.drone.hover();
     });
+
     bot.controller.on("x:press", function() {
       bot.drone.land();
     });
+
     bot.controller.on("right_x:move", function(data) {
       rightStick.x = data;
     });
+
     bot.controller.on("right_y:move", function(data) {
       rightStick.y = data;
     });
+
     bot.controller.on("left_x:move", function(data) {
       leftStick.x = data;
     });
+
     bot.controller.on("left_y:move", function(data) {
       leftStick.y = data;
     });
 
     setInterval(function() {
       var pair = leftStick;
+
       if (pair.y < 5) {
         bot.drone.front(validatePitch(pair.y, offset));
       } else if (pair.y > 5) {
         bot.drone.back(validatePitch(pair.y, offset));
       }
+
       if (pair.x > 5) {
         bot.drone.right(validatePitch(pair.x, offset));
       } else if (pair.x < 5) {
@@ -72,11 +73,13 @@ cylon.robot({
 
     setInterval(function() {
       var pair = rightStick;
+
       if (pair.y < 5) {
         bot.drone.up(validatePitch(pair.y, offset));
       } else if (pair.y > 5) {
         bot.drone.down(validatePitch(pair.y, offset));
       }
+
       if (pair.x > 20) {
         bot.drone.clockwise(validatePitch(pair.x, offset));
       } else if (pair.x < 20) {
@@ -88,8 +91,6 @@ cylon.robot({
       bot.drone.hover();
     }, 10);
   })
-  .on('error', function(err) {
-    console.log(err);
-  })
-  .start();
+  .on('error', console.log);
 
+Cylon.start();
