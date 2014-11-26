@@ -18,7 +18,10 @@ ARDrone over an IP address, and a `drone` device to control the drone itself.
 Except this time, we're also adding a `nav` device that will bind to the
 ARDrone's navigation board.
 
-      connection: { name: 'ardrone', adaptor: 'ardrone', port: '192.168.1.1' },
+      connections: {
+        ardrone: { adaptor: 'ardrone', port: '192.168.1.1' }
+      },
+
       devices: {
         drone: { driver: 'ardrone' },
         nav: { driver: 'ardroneNav' }

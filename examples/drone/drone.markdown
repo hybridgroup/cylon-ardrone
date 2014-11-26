@@ -15,8 +15,13 @@ And now that we have that taken care of, we can define our robot.
 Our robot will communicate with an ARDrone over an IP address, and controls the
 drone using a device we're going to call "drone":
 
-      connection: { name: 'ardrone', adaptor: 'ardrone', port: '192.168.1.1' },
-      device: { name: 'drone', driver: 'ardrone' },
+      connections: {
+        ardrone: { adaptor: 'ardrone', port: '192.168.1.1' }
+      },
+
+      devices: {
+        drone: { driver: 'ardrone' }
+      },
 
 The work for this robot is pretty straightforward. It's going to take off, and
 then land after ten seconds. Five seconds later, after it's safely on the

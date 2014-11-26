@@ -16,11 +16,11 @@ function validatePitch(data, offset) {
 Cylon
   .robot()
 
-  .connection({ name: 'joystick', adaptor: 'joystick' })
-  .connection({ adaptor: 'ardrone', port: '192.168.1.1' })
+  .connection('joystick', { adaptor: 'joystick' })
+  .connection('ardrone', { adaptor: 'ardrone', port: '192.168.1.1' })
 
-  .device({ name: 'controller', driver: 'dualshock-3', connection: 'joystick' })
-  .device({ name: 'drone', driver: 'ardrone', connection: 'ardrone' })
+  .device('controller', { driver: 'dualshock-3', connection: 'joystick' })
+  .device('drone', { driver: 'ardrone', connection: 'ardrone' })
 
   .on("ready", function(bot) {
     var offset = 32767.0,
