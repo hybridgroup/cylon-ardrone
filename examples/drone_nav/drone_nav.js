@@ -7,7 +7,7 @@ Cylon.robot({
 
   devices: {
     drone: { driver: 'ardrone' },
-    nav: { driver: 'ardroneNav' }
+    nav: { driver: 'ardrone-nav' }
   },
 
   work: function(my) {
