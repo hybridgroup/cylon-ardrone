@@ -1,12 +1,14 @@
-var Cylon = require('cylon');
+"use strict";
+
+var Cylon = require("cylon");
 
 Cylon.robot({
   connections: {
-    ardrone: { adaptor: 'ardrone', port: '192.168.1.1' }
+    ardrone: { adaptor: "ardrone", port: "192.168.1.1" }
   },
 
   devices: {
-    drone: { driver: 'ardrone' }
+    drone: { driver: "ardrone" }
   },
 
   work: function(my) {
