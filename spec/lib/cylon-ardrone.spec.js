@@ -30,7 +30,7 @@ describe('cylon-ardrone', function() {
     var args;
 
     beforeEach(function() {
-      args = { device: { connection: {} } };
+      args = { connection: {} };
     });
 
     context("when passed 'ardrone'", function() {
