@@ -29,7 +29,7 @@ describe('Cylon.Drivers.ARDrone.Nav', function() {
 
       var events = [
         'navdata', 'landing', 'landed', 'takeoff', 'hovering', 'flying',
-        'lowBattery', 'batteryChange', 'altitudeChange', 'update'
+        'lowBattery', 'batteryChange', 'altitudeChange'
       ];
 
       events.forEach(function(e) {
