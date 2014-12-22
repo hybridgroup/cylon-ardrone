@@ -10,10 +10,13 @@ Want to use the Go programming language to power your robots? Check out our sist
 
 [![Build Status](https://secure.travis-ci.org/hybridgroup/cylon-ardrone.png?branch=master)](http://travis-ci.org/hybridgroup/cylon-ardrone) [![Code Climate](https://codeclimate.com/github/hybridgroup/cylon-ardrone/badges/gpa.svg)](https://codeclimate.com/github/hybridgroup/cylon-ardrone) [![Test Coverage](https://codeclimate.com/github/hybridgroup/cylon-ardrone/badges/coverage.svg)](https://codeclimate.com/github/hybridgroup/cylon-ardrone)
 
-## Getting Started
-Install the module with: `npm install cylon-ardrone`
+## How to Install
 
-## Example
+Installing cylon.js with ardrone support is pretty easy.
+
+    npm install cylon-ardrone
+
+## How to Use
 
 ```javascript
 var Cylon = require('cylon');
@@ -38,6 +41,10 @@ Cylon.robot({
   }
 }).start();
 ```
+
+## How to Connect
+
+The ARDrone is a WiFi device, so there is no additional work to establish a connection to a single drone. However, in order to connect to multiple drones, you need to perform some configuration steps on each drone via SSH.
 
 ## Documentation
 
