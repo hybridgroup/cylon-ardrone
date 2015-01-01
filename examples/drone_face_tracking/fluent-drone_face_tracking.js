@@ -1,28 +1,30 @@
-var Cylon = require('cylon'),
+"use strict";
+
+var Cylon = require("cylon"),
     haarcascade = __dirname + "/haarcascade_frontalface_alt.xml";
 
 Cylon
   .robot()
 
-  .connection('opencv', { adaptor: 'opencv' })
-  .connection('ardrone', { adaptor: 'ardrone', port: '192.168.1.1' })
+  .connection("opencv", { adaptor: "opencv" })
+  .connection("ardrone", { adaptor: "ardrone", port: "192.168.1.1" })
 
-  .device('drone', { driver: 'ardrone', connection: 'ardrone' })
-  .device('window', { driver: 'window', connection: 'opencv' })
+  .device("drone", { driver: "ardrone", connection: "ardrone" })
+  .device("window", { driver: "window", connection: "opencv" })
 
-  .on('ready', function(bot) {
+  .on("ready", function(bot) {
     this.detect = false;
     this.image = null;
     var self = this;
 
-    bot.drone.getPngStream().on('data', function(png) {
+    bot.drone.getPngStream().on("data", function(png) {
       bot.opencv.readImage(png, function(err, img) {
         self.image = img;
         if (self.detect === false) { bot.window.show(img); }
       });
     });
 
-    bot.opencv.on('facesDetected', function(err, im, faces) {
+    bot.opencv.on("facesDetected", function(err, im, faces) {
       var biggest = 0,
       face = null;
 

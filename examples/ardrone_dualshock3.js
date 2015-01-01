@@ -1,4 +1,6 @@
-var Cylon = require('cylon');
+"use strict";
+
+var Cylon = require("cylon");
 
 function validatePitch(data) {
   var value = Math.abs(data);
@@ -16,11 +18,11 @@ function validatePitch(data) {
 Cylon
   .robot()
 
-  .connection('joystick', { adaptor: 'joystick' })
-  .connection('ardrone', { adaptor: 'ardrone', port: '192.168.1.1' })
+  .connection("joystick", { adaptor: "joystick" })
+  .connection("ardrone", { adaptor: "ardrone", port: "192.168.1.1" })
 
-  .device('controller', { driver: 'dualshock-3', connection: 'joystick' })
-  .device('drone', { driver: 'ardrone', connection: 'ardrone' })
+  .device("controller", { driver: "dualshock-3", connection: "joystick" })
+  .device("drone", { driver: "ardrone", connection: "ardrone" })
 
   .on("ready", function(bot) {
     var rightStick = { x: 0.0, y: 0.0 },
@@ -90,6 +92,6 @@ Cylon
       bot.drone.hover();
     }, 10);
   })
-  .on('error', console.log);
+  .on("error", console.log);
 
 Cylon.start();

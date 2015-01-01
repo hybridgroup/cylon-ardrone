@@ -1,15 +1,13 @@
-'use strict';
+/* jshint expr:true */
+"use strict";
 
-var EventEmitter = require('events').EventEmitter;
+var Nav = source("nav");
 
-var Nav = source('nav');
-
-describe('Cylon.Drivers.ARDrone.Nav', function() {
+describe("Cylon.Drivers.ARDrone.Nav", function() {
   var driver;
 
   beforeEach(function() {
-    driver = new Nav({
-    })
+    driver = new Nav({});
   });
 
   describe("#start", function() {
@@ -17,7 +15,7 @@ describe('Cylon.Drivers.ARDrone.Nav', function() {
 
     beforeEach(function() {
       callback = spy();
-      stub(driver, 'defineDriverEvent');
+      stub(driver, "defineDriverEvent");
     });
 
     afterEach(function() {
@@ -28,8 +26,8 @@ describe('Cylon.Drivers.ARDrone.Nav', function() {
       driver.start(callback);
 
       var events = [
-        'navdata', 'landing', 'landed', 'takeoff', 'hovering', 'flying',
-        'lowBattery', 'batteryChange', 'altitudeChange'
+        "navdata", "landing", "landed", "takeoff", "hovering", "flying",
+        "lowBattery", "batteryChange", "altitudeChange"
       ];
 
       events.forEach(function(e) {

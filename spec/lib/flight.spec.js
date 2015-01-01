@@ -1,8 +1,9 @@
+/* jshint expr:true */
 "use strict";
 
-var Flight = source('flight');
+var Flight = source("flight");
 
-describe('Cylon.Drivers.ARDrone.Flight', function() {
+describe("Cylon.Drivers.ARDrone.Flight", function() {
   var driver;
 
   beforeEach(function() {
@@ -18,13 +19,13 @@ describe('Cylon.Drivers.ARDrone.Flight', function() {
   describe("#commands", function() {
     it("contains snake_cased versions of all ARDrone commands", function() {
       var commands = driver.commands;
-      expect(commands).to.be.a('object');
+      expect(commands).to.be.a("object");
 
       for (var c in commands) {
         var command = commands[c];
-        expect(c).to.be.a('string');
+        expect(c).to.be.a("string");
         expect(c).to.match(/^[a-z_]*$/);
-        expect(command).to.be.a('function');
+        expect(command).to.be.a("function");
       }
     });
   });
@@ -47,35 +48,35 @@ describe('Cylon.Drivers.ARDrone.Flight', function() {
     describe("#frontFlip", function() {
       it("tells the drone to do a front flip", function() {
         driver.frontFlip();
-        expect(driver.connection.animate).to.be.calledWith('flipAhead', 150);
+        expect(driver.connection.animate).to.be.calledWith("flipAhead", 150);
       });
     });
 
     describe("#backFlip", function() {
       it("tells the drone to do a back flip", function() {
         driver.backFlip();
-        expect(driver.connection.animate).to.be.calledWith('flipBehind', 150);
+        expect(driver.connection.animate).to.be.calledWith("flipBehind", 150);
       });
     });
 
     describe("#leftFlip", function() {
       it("tells the drone to do a left flip", function() {
         driver.leftFlip();
-        expect(driver.connection.animate).to.be.calledWith('flipLeft', 150);
+        expect(driver.connection.animate).to.be.calledWith("flipLeft", 150);
       });
     });
 
     describe("#rightFlip", function() {
       it("tells the drone to do a right flip", function() {
         driver.rightFlip();
-        expect(driver.connection.animate).to.be.calledWith('flipRight', 150);
+        expect(driver.connection.animate).to.be.calledWith("flipRight", 150);
       });
     });
 
     describe("#wave", function() {
       it("tells the drone to wave", function() {
         driver.wave();
-        expect(driver.connection.animate).to.be.calledWith('wave', 750);
+        expect(driver.connection.animate).to.be.calledWith("wave", 750);
       });
     });
   });
