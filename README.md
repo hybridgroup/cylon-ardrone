@@ -14,7 +14,7 @@ Want to use the Go programming language to power your robots? Check out our sist
 
 Installing cylon.js with ardrone support is pretty easy.
 
-    npm install cylon-ardrone
+    npm install cylon cylon-ardrone
 
 ## How to Use
 
