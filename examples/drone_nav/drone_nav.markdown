@@ -24,7 +24,7 @@ ARDrone's navigation board.
 
       devices: {
         drone: { driver: 'ardrone' },
-        nav: { driver: 'ardroneNav' }
+        nav: { driver: 'ardrone-nav' }
       },
 
 For our robot's work, it's going to enable the nav board's demo mode in the
@@ -33,7 +33,7 @@ drone's config, and log data to the console whenever the nav board emits the
 
       work: function(my) {
         my.drone.config('general:navdata_demo', 'TRUE');
-        my.nav.on('update', console.log);
+        my.nav.on('navdata', console.log);
       }
 
 Simple enough. Now all that's left is to start the robot:
