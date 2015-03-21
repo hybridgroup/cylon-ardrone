@@ -9,7 +9,7 @@ Cylon
   .device("nav", { driver: "ardroneNav" })
   .on("ready", function(bot) {
     bot.drone.config("general:navdata_demo", "TRUE");
-    bot.nav.on("update", console.log);
+    bot.nav.on("navdata", console.log);
   });
 
 Cylon.start();
