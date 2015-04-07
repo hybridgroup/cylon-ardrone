@@ -23,10 +23,6 @@
     "jshint":     "~2.4.4"
   },
 
-  "peerDependencies": {
-    "cylon": ">= 0.22.0 < 1"
-  },
-
   "dependencies": {
     "ar-drone": ">= 0.3.0",
     "cylon":    "~0.22.0"
