@@ -11,7 +11,8 @@ describe("Cylon.Drivers.ARDrone.Flight", function() {
       connection: {
         animate: spy(),
         front: spy(),
-        stop: spy()
+        stop: spy(),
+        ftrim: spy()
       }
     });
   });
@@ -77,6 +78,13 @@ describe("Cylon.Drivers.ARDrone.Flight", function() {
       it("tells the drone to wave", function() {
         driver.wave();
         expect(driver.connection.animate).to.be.calledWith("wave", 750);
+      });
+    });
+
+    describe("#ftrim", function() {
+      it("tells the drone to perform a flat trim", function() {
+        driver.ftrim();
+        expect(driver.connection.ftrim).to.be.called;
       });
     });
   });
