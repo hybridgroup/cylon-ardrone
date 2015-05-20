@@ -88,4 +88,11 @@ describe("Cylon.Drivers.ARDrone.Flight", function() {
       });
     });
   });
+
+  describe("#enableEmergency", function() {
+    it("tells the drone to enter emergency mode (cut engines)", function() {
+      driver.enableEmergency();
+      expect(driver.connection.ardrone._ref.emergency).to.equal(true);
+    });
+  });
 });
