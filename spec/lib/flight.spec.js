@@ -5,6 +5,7 @@ var Flight = source("flight");
 
 describe("Cylon.Drivers.ARDrone.Flight", function() {
   var driver;
+  var ardrone = { _ref: { emergency: false } };
 
   beforeEach(function() {
     driver = new Flight({
@@ -12,7 +13,8 @@ describe("Cylon.Drivers.ARDrone.Flight", function() {
         animate: spy(),
         front: spy(),
         stop: spy(),
-        ftrim: spy()
+        ftrim: spy(),
+        ardrone: ardrone
       }
     });
   });
@@ -86,6 +88,13 @@ describe("Cylon.Drivers.ARDrone.Flight", function() {
         driver.ftrim();
         expect(driver.connection.ftrim).to.be.called;
       });
+    });
+  });
+
+  describe("#enableEmergency", function() {
+    it("tells the drone to enter emergency mode (cut engines)", function() {
+      driver.enableEmergency();
+      expect(driver.connection.ardrone._ref.emergency).to.equal(true);
     });
   });
 });
