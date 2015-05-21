@@ -60,12 +60,14 @@ Thank you!
 * We will look at the patch, test it out, and give you feedback.
 * Avoid doing minor whitespace changes, renamings, etc. along with merged content. These will be done by the maintainers from time to time but they can complicate merges and should be done seperately.
 * Take care to maintain the existing coding style.
-* Add unit tests for any new or changed functionality & Lint and test your code using [Grunt](http://gruntjs.com/).
+* Add unit tests for any new or changed functionality & jslint and test your code using [Make](http://www.gnu.org/software/make/).
 * All pull requests should be "fast forward"
   * If there are commits after yours use “git rebase -i <new_head_branch>”
   * If you have local changes you may need to use “git stash”
 
 ## Release History
+
+Version 0.19.0 - Adds emergency mode and ftrim commands
 
 Version 0.18.0 - Compatibility with Cylon 1.0.0
 
@@ -108,4 +110,4 @@ Version 0.1.1 - Correct events for navdata
 Version 0.1.0 - Initial release that can fly
 
 ## License
-Copyright (c) 2013-2014 The Hybrid Group. Licensed under the Apache 2.0 license.
+Copyright (c) 2013-2015 The Hybrid Group. Licensed under the Apache 2.0 license.
