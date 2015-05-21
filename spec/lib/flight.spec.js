@@ -5,6 +5,7 @@ var Flight = source("flight");
 
 describe("Cylon.Drivers.ARDrone.Flight", function() {
   var driver;
+  var ardrone = { _ref: { emergency: false } };
 
   beforeEach(function() {
     driver = new Flight({
@@ -12,7 +13,8 @@ describe("Cylon.Drivers.ARDrone.Flight", function() {
         animate: spy(),
         front: spy(),
         stop: spy(),
-        ftrim: spy()
+        ftrim: spy(),
+        ardrone: ardrone
       }
     });
   });
