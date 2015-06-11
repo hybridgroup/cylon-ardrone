@@ -1,7 +1,6 @@
-/* jshint expr:true */
 "use strict";
 
-var Flight = source("flight");
+var Flight = lib("flight");
 
 describe("Cylon.Drivers.ARDrone.Flight", function() {
   var driver;

@@ -1,7 +1,10 @@
 "use strict";
 
-var Cylon = require("cylon"),
-    haarcascade = __dirname + "/haarcascade_frontalface_alt.xml";
+var Cylon = require("cylon");
+
+var path = require("path");
+
+var haarcascade = path.join(__dirname, "/haarcascade_frontalface_alt.xml");
 
 Cylon
   .robot()
@@ -19,14 +22,17 @@ Cylon
 
     bot.drone.getPngStream().on("data", function(png) {
       bot.opencv.readImage(png, function(err, img) {
+        if (err) { console.error(err); }
         self.image = img;
         if (self.detect === false) { bot.window.show(img); }
       });
     });
 
     bot.opencv.on("facesDetected", function(err, im, faces) {
+      if (err) { console.error(err); }
+
       var biggest = 0,
-      face = null;
+          face = null;
 
       for (var i = 0; i < faces.length; i++) {
         var f = faces[i];

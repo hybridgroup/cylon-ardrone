@@ -1,8 +1,7 @@
-/* jshint expr:true */
 "use strict";
 
-var ARDrone = source("ardrone"),
-    Commands = source("commands");
+var ARDrone = lib("ardrone"),
+    Commands = lib("commands");
 
 var LibARDrone = require("ar-drone");
 

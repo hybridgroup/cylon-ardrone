@@ -1,11 +1,10 @@
-/* jshint expr:true */
 "use strict";
 
-var mod = source("cylon-ardrone");
+var mod = lib("cylon-ardrone");
 
-var ARDrone = source("ardrone"),
-    Flight = source("flight"),
-    Nav = source("nav");
+var ARDrone = lib("ardrone"),
+    Flight = lib("flight"),
+    Nav = lib("nav");
 
 describe("cylon-ardrone", function() {
 

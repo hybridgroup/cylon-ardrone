@@ -1,7 +1,6 @@
-/* jshint expr:true */
 "use strict";
 
-var Nav = source("nav");
+var Nav = lib("nav");
 
 describe("Cylon.Drivers.ARDrone.Nav", function() {
   var driver;

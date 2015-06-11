@@ -7,12 +7,12 @@ function validatePitch(data) {
   if (value >= 0.1) {
     if (value <= 1.0) {
       return Math.round(value * 100.0) / 100.0;
-    } else {
-      return 1.0;
     }
-  } else {
-    return 0.0;
+
+    return 1.0;
   }
+
+  return 0.0;
 }
 
 Cylon
