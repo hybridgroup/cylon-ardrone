@@ -1,6 +1,6 @@
 "use strict";
 
-var mod = lib("cylon-ardrone");
+var mod = lib("../");
 
 var ARDrone = lib("ardrone"),
     Flight = lib("flight"),
